@@ -1,12 +1,14 @@
 import { Router } from "express";
-import { signup } from "../controllers/auth.controller";
+import { signin, signup } from "../controllers/auth.controller";
+import {
+  checkDuplicateUsername,
+  checkDuplicateEmail,
+} from "../middlewares/verifySignUp";
 
 const router = Router();
 
-router.get("/signin", (req, res) => {
-  res.json("I am in login");
-});
+router.post("/signin", signin);
 
-router.post("/signup", signup);
+router.post("/signup", checkDuplicateUsername, checkDuplicateEmail, signup);
 
 export default router;

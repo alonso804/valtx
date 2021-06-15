@@ -3,6 +3,8 @@ import bcrypt from "bcryptjs";
 
 const userSchema = new Schema(
   {
+    name: String,
+    lastName: String,
     username: String,
     email: String,
     password: String,
@@ -25,8 +27,8 @@ userSchema.statics.encryptPassword = async (password) => {
   return bcrypt.hash(password, salt);
 };
 
-userSchema.statics.comparePassword = async (password, receivedPassword) => {
-  return await bcrypt.compare(password, receivedPassword);
+userSchema.statics.comparePassword = async (receivedPassword, password) => {
+  return await bcrypt.compare(receivedPassword, password);
 };
 
 export default model("User", userSchema);
