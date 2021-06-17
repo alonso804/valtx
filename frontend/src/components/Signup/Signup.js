@@ -124,7 +124,6 @@ const SignupComponent = () => {
                 value={values.lastName}
                 onChange={handleChange}
                 autoComplete="lname"
-                onChange={handleChange}
                 onBlur={handleBlur}
                 error={errors.lastName && touched.lastName}
               />
