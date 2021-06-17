@@ -4,6 +4,7 @@ import jwt from "jsonwebtoken";
 import config from "../config";
 
 export const signup = async (req, res) => {
+  //console.log(req.body);
   const { name, lastName, username, email, password, roles } = req.body;
 
   const newUser = new User({
@@ -19,12 +20,12 @@ export const signup = async (req, res) => {
     newUser.roles = foundRoles.map((role) => role._id);
   } else {
     const role = await Role.findOne({ name: "user" });
-    console.log(role);
+    //console.log(role);
     newUser.roles = [role._id];
   }
 
   const savedUser = await newUser.save();
-  console.log(savedUser);
+  //console.log(savedUser);
 
   const token = jwt.sign({ id: savedUser._id }, config.SECRET, {
     expiresIn: 86400, // 24 hrs
