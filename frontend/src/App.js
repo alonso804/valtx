@@ -9,7 +9,7 @@ const App = () => {
       <Switch>
         <Route exact path="/" component={Index} />
         <Route path="/signin" component={Signin} />
-        <Route path="/signup" component={Signup} onEnter={requireAuth} />
+        <Route path="/signup" component={Signup} />
       </Switch>
     </BrowserRouter>
   );

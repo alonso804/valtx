@@ -29,54 +29,48 @@ const SigninForm = () => {
   const [fail, setFail] = useState(false);
   const [failMessage, setFailMessage] = useState("");
 
-  const initialValues = {
-    username: "alonso804",
-    password: "1234",
-    /*
-     *username: "",
-     *password: "",
-     */
-  };
-
-  const validate = (values) => {
-    const errors = {};
-    if (!values.username) {
-      errors.username = "Username requerido";
-    }
-
-    if (!values.password) {
-      errors.password = "Contraseña requerida";
-    }
-
-    return errors;
-  };
-
-  const onSubmit = (values, { setSubmitting }) => {
-    AuthServices.signin(values)
-      .then((res) => {
-        StorageService.setJWT(res.data.token);
-        console.log("saved jwt: ", StorageService.getJWT());
-        console.log("Logeado");
-      })
-      .catch((err) => {
-        console.log("[Sign In] Error al iniciar sesión");
-        console.error(err);
-        setFail(true);
-        setFailMessage(err.response.data.message);
-      });
-    console.log(values);
-    setSubmitting(false);
-  };
-
   const handleClose = () => {
     setFail(false);
   };
 
   return (
     <Formik
-      initialValues={initialValues}
-      validate={validate}
-      onSubmit={onSubmit}
+      initialValues={{
+        username: "alonso804",
+        password: "1234",
+        /*
+         *username: "",
+         *password: "",
+         */
+      }}
+      validate={(values) => {
+        const errors = {};
+        if (!values.username) {
+          errors.username = "Username requerido";
+        }
+
+        if (!values.password) {
+          errors.password = "Contraseña requerida";
+        }
+
+        return errors;
+      }}
+      onSubmit={(values, { setSubmitting }) => {
+        AuthServices.signin(values)
+          .then((res) => {
+            StorageService.setJWT(res.data.token);
+            console.log("saved jwt: ", StorageService.getJWT());
+            console.log("Logeado");
+          })
+          .catch((err) => {
+            console.log("[Sign In] Error al iniciar sesión");
+            console.error(err);
+            setFail(true);
+            setFailMessage(err.response.data.message);
+          });
+        console.log(values);
+        setSubmitting(false);
+      }}
     >
       {({
         values,

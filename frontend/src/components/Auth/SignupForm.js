@@ -29,74 +29,70 @@ const SignupForm = () => {
   const [fail, setFail] = useState(false);
   const [failMessage, setFailMessage] = useState("");
 
-  const initialValues = {
-    firstName: "Alonso",
-    lastName: "Barrios",
-    email: "alonso.barrios@utec.edu.pe",
-    username: "alonso804",
-    password: "1234",
-    /*
-     *firstName: "",
-     *lastName: "",
-     *email: "",
-     *username: "",
-     *password: "",
-     */
-  };
-
-  const validate = (values) => {
-    const errors = {};
-
-    if (!values.email) {
-      errors.email = "Email requerido";
-    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
-      errors.email = "Dirección email inválida";
-    }
-
-    if (!values.firstName) {
-      errors.firstName = "Nombre requerido";
-    }
-
-    if (!values.lastName) {
-      errors.lastName = "Apellido requerido";
-    }
-
-    if (!values.username) {
-      errors.username = "Username requerido";
-    }
-
-    if (!values.password) {
-      errors.password = "Contraseña requerida";
-    }
-
-    return errors;
-  };
-
-  const onSubmit = (values, { setSubmitting }) => {
-    AuthServices.signup(values)
-      .then((res) => {
-        StorageService.setJWT(res.data.token);
-        console.log("saved jwt: ", StorageService.getJWT());
-      })
-      .catch((err) => {
-        console.log("[Sign Up] Error al registrar");
-        console.error(err);
-        setFail(true);
-        setFailMessage(err.response.data.message);
-      });
-    console.log(values);
-    setSubmitting(false);
-  };
-
   const handleClose = () => {
     setFail(false);
   };
 
   return (
     <Formik
-      initialValues={initialValues}
-      validate={validate}
-      onSubmit={onSubmit}
+      initialValues={{
+        firstName: "Alonso",
+        lastName: "Barrios",
+        email: "alonso.barrios@utec.edu.pe",
+        username: "alonso804",
+        password: "1234",
+        /*
+         *firstName: "",
+         *lastName: "",
+         *email: "",
+         *username: "",
+         *password: "",
+         */
+      }}
+      validate={(values) => {
+        const errors = {};
+
+        if (!values.email) {
+          errors.email = "Email requerido";
+        } else if (
+          !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+        ) {
+          errors.email = "Dirección email inválida";
+        }
+
+        if (!values.firstName) {
+          errors.firstName = "Nombre requerido";
+        }
+
+        if (!values.lastName) {
+          errors.lastName = "Apellido requerido";
+        }
+
+        if (!values.username) {
+          errors.username = "Username requerido";
+        }
+
+        if (!values.password) {
+          errors.password = "Contraseña requerida";
+        }
+
+        return errors;
+      }}
+      onSubmit={(values, { setSubmitting }) => {
+        AuthServices.signup(values)
+          .then((res) => {
+            StorageService.setJWT(res.data.token);
+            console.log("saved jwt: ", StorageService.getJWT());
+          })
+          .catch((err) => {
+            console.log("[Sign Up] Error al registrar");
+            console.error(err);
+            setFail(true);
+            setFailMessage(err.response.data.message);
+          });
+        console.log(values);
+        setSubmitting(false);
+      }}
     >
       {({
         values,
