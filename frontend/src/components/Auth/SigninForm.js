@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SigninComponent = () => {
+const SigninForm = () => {
   const classes = useStyles();
 
   return (
@@ -135,4 +135,4 @@ const SigninComponent = () => {
   );
 };
 
-export default SigninComponent;
+export default SigninForm;

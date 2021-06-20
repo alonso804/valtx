@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SignupComponent = () => {
+const SignupForm = () => {
   const classes = useStyles();
 
   return (
@@ -207,4 +207,4 @@ const SignupComponent = () => {
   );
 };
 
-export default SignupComponent;
+export default SignupForm;
