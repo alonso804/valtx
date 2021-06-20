@@ -18,7 +18,6 @@ export const signup = async (req, res) => {
     const foundRoles = await Role.find({
       name: { $in: roles.map((role) => role.toString()) },
     });
-    console.log(foundRoles);
     newUser.roles = foundRoles.map((role) => role._id);
   } else {
     const role = await Role.findOne({ name: "user" });
@@ -26,6 +25,9 @@ export const signup = async (req, res) => {
   }
 
   const savedUser = await newUser.save();
+
+  console.log("[SIGN UP] Saved User");
+  console.log(savedUser);
 
   const token = jwt.sign({ id: savedUser._id }, config.SECRET, {
     expiresIn: 86400, // 24 hrs
@@ -62,6 +64,7 @@ export const signin = async (req, res) => {
     expiresIn: 86400,
   });
 
+  console.log("[SIGN IN] Saved User");
   console.log(userFound);
 
   return res
