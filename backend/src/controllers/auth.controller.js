@@ -34,9 +34,9 @@ export const signup = async (req, res) => {
 };
 
 export const signin = async (req, res) => {
-  const username = { username: req.body.username.toString() };
-
-  const userFound = await User.findOne(username).populate("roles");
+  const userFound = await User.findOne({
+    username: req.body.username.toString(),
+  }).populate("roles");
 
   if (!userFound) {
     return res

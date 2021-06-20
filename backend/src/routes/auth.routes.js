@@ -5,10 +5,10 @@ import {
   checkDuplicateEmail,
 } from "../middlewares/verifySignUp";
 
-const router = Router();
+const authRoutes = Router();
 
-router.post("/signin", signin);
+authRoutes.post("/signin", signin);
 
-router.post("/signup", checkDuplicateUsername, checkDuplicateEmail, signup);
+authRoutes.post("/signup", checkDuplicateUsername, checkDuplicateEmail, signup);
 
-export default router;
+export default authRoutes;
