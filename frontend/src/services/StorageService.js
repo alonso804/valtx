@@ -12,7 +12,7 @@ export class StorageService {
   }
 
   static isLoggedIn() {
-    return localStorage.getItem("jwt");
+    return localStorage.getItem("jwt") ? true : false;
   }
 
   static logout() {

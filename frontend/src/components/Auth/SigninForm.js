@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Link from "@material-ui/core/Link";
@@ -8,6 +8,7 @@ import { FormHelperText } from "@material-ui/core";
 import { Formik } from "formik";
 import { AuthServices } from "../../services/AuthServices";
 import { StorageService } from "../../services/StorageService";
+import ErrorModal from "./ErrorModal";
 
 const useStyles = makeStyles((theme) => ({
   avatar: {
@@ -25,43 +26,57 @@ const useStyles = makeStyles((theme) => ({
 
 const SigninForm = () => {
   const classes = useStyles();
+  const [fail, setFail] = useState(false);
+  const [failMessage, setFailMessage] = useState("");
+
+  const initialValues = {
+    username: "alonso804",
+    password: "1234",
+    /*
+     *username: "",
+     *password: "",
+     */
+  };
+
+  const validate = (values) => {
+    const errors = {};
+    if (!values.username) {
+      errors.username = "Username requerido";
+    }
+
+    if (!values.password) {
+      errors.password = "Contraseña requerida";
+    }
+
+    return errors;
+  };
+
+  const onSubmit = (values, { setSubmitting }) => {
+    AuthServices.signin(values)
+      .then((res) => {
+        StorageService.setJWT(res.data.token);
+        console.log("saved jwt: ", StorageService.getJWT());
+        console.log("Logeado");
+      })
+      .catch((err) => {
+        console.log("[Sign In] Error al iniciar sesión");
+        console.error(err);
+        setFail(true);
+        setFailMessage(err.response.data.message);
+      });
+    console.log(values);
+    setSubmitting(false);
+  };
+
+  const handleClose = () => {
+    setFail(false);
+  };
 
   return (
     <Formik
-      initialValues={{
-        username: "alonso804",
-        password: "1234",
-        /*
-         *username: "",
-         *password: "",
-         */
-      }}
-      validate={(values) => {
-        const errors = {};
-        if (!values.username) {
-          errors.username = "Username requerido";
-        }
-
-        if (!values.password) {
-          errors.password = "Contraseña requerida";
-        }
-
-        return errors;
-      }}
-      onSubmit={(values, { setSubmitting }) => {
-        AuthServices.signin(values)
-          .then((res) => {
-            StorageService.setJWT(res.data.token);
-            console.log("saved jwt: ", StorageService.getJWT());
-            console.log("Logeado");
-          })
-          .catch((err) => {
-            console.log("[Sign In] Error al iniciar sesión");
-            console.error(err);
-          });
-        console.log(values);
-        setSubmitting(false);
-      }}
+      initialValues={initialValues}
+      validate={validate}
+      onSubmit={onSubmit}
     >
       {({
         values,
@@ -125,10 +140,15 @@ const SigninForm = () => {
             </Grid>
             <Grid item>
               <Link href="/signup" variant="body2">
-                {"Don't have an account? Sign Up"}
+                {"¿No tienes cuenta? Regístrate"}
               </Link>
             </Grid>
           </Grid>
+          <ErrorModal
+            fail={fail}
+            message={failMessage}
+            handleClose={handleClose}
+          />
         </form>
       )}
     </Formik>

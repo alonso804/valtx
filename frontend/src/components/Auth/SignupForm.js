@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Link from "@material-ui/core/Link";
@@ -8,6 +8,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Formik } from "formik";
 import { AuthServices } from "../../services/AuthServices";
 import { StorageService } from "../../services/StorageService";
+import ErrorModal from "./ErrorModal";
 
 const useStyles = makeStyles((theme) => ({
   avatar: {
@@ -15,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.secondary.main,
   },
   form: {
-    width: "100%", // Fix IE 11 issue.
+    width: "100%",
     marginTop: theme.spacing(3),
   },
   submit: {
@@ -25,65 +26,77 @@ const useStyles = makeStyles((theme) => ({
 
 const SignupForm = () => {
   const classes = useStyles();
+  const [fail, setFail] = useState(false);
+  const [failMessage, setFailMessage] = useState("");
+
+  const initialValues = {
+    firstName: "Alonso",
+    lastName: "Barrios",
+    email: "alonso.barrios@utec.edu.pe",
+    username: "alonso804",
+    password: "1234",
+    /*
+     *firstName: "",
+     *lastName: "",
+     *email: "",
+     *username: "",
+     *password: "",
+     */
+  };
+
+  const validate = (values) => {
+    const errors = {};
+
+    if (!values.email) {
+      errors.email = "Email requerido";
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
+      errors.email = "Dirección email inválida";
+    }
+
+    if (!values.firstName) {
+      errors.firstName = "Nombre requerido";
+    }
+
+    if (!values.lastName) {
+      errors.lastName = "Apellido requerido";
+    }
+
+    if (!values.username) {
+      errors.username = "Username requerido";
+    }
+
+    if (!values.password) {
+      errors.password = "Contraseña requerida";
+    }
+
+    return errors;
+  };
+
+  const onSubmit = (values, { setSubmitting }) => {
+    AuthServices.signup(values)
+      .then((res) => {
+        StorageService.setJWT(res.data.token);
+        console.log("saved jwt: ", StorageService.getJWT());
+      })
+      .catch((err) => {
+        console.log("[Sign Up] Error al registrar");
+        console.error(err);
+        setFail(true);
+        setFailMessage(err.response.data.message);
+      });
+    console.log(values);
+    setSubmitting(false);
+  };
+
+  const handleClose = () => {
+    setFail(false);
+  };
 
   return (
     <Formik
-      initialValues={{
-        firstName: "Alonso",
-        lastName: "Barrios",
-        email: "alonso.barrios@utec.edu.pe",
-        username: "alonso804",
-        password: "1234",
-        /*
-         *firstName: "",
-         *lastName: "",
-         *email: "",
-         *username: "",
-         *password: "",
-         */
-      }}
-      validate={(values) => {
-        const errors = {};
-
-        if (!values.email) {
-          errors.email = "Email requerido";
-        } else if (
-          !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-        ) {
-          errors.email = "Dirección email inválida";
-        }
-
-        if (!values.firstName) {
-          errors.firstName = "Nombre requerido";
-        }
-
-        if (!values.lastName) {
-          errors.lastName = "Apellido requerido";
-        }
-
-        if (!values.username) {
-          errors.username = "Username requerido";
-        }
-
-        if (!values.password) {
-          errors.password = "Contraseña requerida";
-        }
-
-        return errors;
-      }}
-      onSubmit={(values, { setSubmitting }) => {
-        AuthServices.signup(values)
-          .then((res) => {
-            StorageService.setJWT(res.data.token);
-            console.log("saved jwt: ", StorageService.getJWT());
-          })
-          .catch((err) => {
-            console.log("[Sign Up] Error al registrar");
-            console.error(err);
-          });
-        console.log(values);
-        setSubmitting(false);
-      }}
+      initialValues={initialValues}
+      validate={validate}
+      onSubmit={onSubmit}
     >
       {({
         values,
@@ -201,6 +214,11 @@ const SignupForm = () => {
               </Link>
             </Grid>
           </Grid>
+          <ErrorModal
+            fail={fail}
+            message={failMessage}
+            handleClose={handleClose}
+          />
         </form>
       )}
     </Formik>
