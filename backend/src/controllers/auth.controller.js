@@ -34,9 +34,9 @@ export const signup = async (req, res) => {
 };
 
 export const signin = async (req, res) => {
-  const { username, password } = req.body;
+  const username = { username: req.body.username.toString() };
 
-  const userFound = await User.findOne({ username }).populate("roles");
+  const userFound = await User.findOne(username).populate("roles");
 
   if (!userFound) {
     return res
@@ -45,7 +45,7 @@ export const signin = async (req, res) => {
   }
 
   const matchPassword = await User.comparePassword(
-    password,
+    req.body.password,
     userFound.password
   );
 
