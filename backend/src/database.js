@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 mongoose
-  .connect("mongodb://localhost/valtx", {
+  .connect(`${process.env.MONGO_URL_DEV}`, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })

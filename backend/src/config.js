@@ -1,3 +1,3 @@
 export default {
-  SECRET: "valt-api",
+  SECRET: `${process.env.SECRET_KEY_JWT}`,
 };
