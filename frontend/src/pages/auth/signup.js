@@ -1,5 +1,4 @@
 import React from "react";
-//import Avatar from '@material-ui/core/Avatar';
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
@@ -24,11 +23,6 @@ const Signup = () => {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        {/*
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
-        */}
         <Typography component="h1" variant="h5">
           Registrarte
         </Typography>
