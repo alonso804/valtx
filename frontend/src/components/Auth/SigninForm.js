@@ -9,6 +9,7 @@ import { Formik } from "formik";
 import { AuthServices } from "../../services/AuthServices";
 import { StorageService } from "../../services/StorageService";
 import ErrorModal from "./ErrorModal";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   avatar: {
@@ -28,6 +29,7 @@ const SigninForm = () => {
   const classes = useStyles();
   const [fail, setFail] = useState(false);
   const [failMessage, setFailMessage] = useState("");
+  const history = useHistory();
 
   const handleClose = () => {
     setFail(false);
@@ -61,6 +63,7 @@ const SigninForm = () => {
             StorageService.setJWT(res.data.token);
             console.log("saved jwt: ", StorageService.getJWT());
             console.log("Logeado");
+            history.push("/");
           })
           .catch((err) => {
             console.log("[Sign In] Error al iniciar sesión");
