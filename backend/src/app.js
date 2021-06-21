@@ -9,6 +9,7 @@ import { createRoles } from "./libs/initialSetup";
 import authRoutes from "./routes/authRoutes";
 
 const app = express();
+app.disable("x-powered-by");
 dotenv.config();
 createRoles();
 
@@ -17,9 +18,13 @@ app.set("pkg", pkg);
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:3000/",
+  })
+);
 
-app.get("/", (req, res) => {
+app.get("/", (_, res) => {
   res.json({
     name: app.get("pkg").name,
     author: app.get("pkg").author,
