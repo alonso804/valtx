@@ -3,9 +3,9 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-import Container from "@material-ui/core/Container";
-import SigninForm from "../../components/Auth/SigninForm";
-import Copyright from "../../components/Auth/Copyright";
+import { Container } from "@material-ui/core";
+import SignupForm from "../components/Auth/SignupForm";
+import Copyright from "../components/Auth/Copyright";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Signin = () => {
+const Signup = () => {
   const classes = useStyles();
 
   return (
@@ -24,14 +24,14 @@ const Signin = () => {
       <CssBaseline />
       <div className={classes.paper}>
         <Typography component="h1" variant="h5">
-          Iniciar Sesión
+          Registrarte
         </Typography>
-        <SigninForm />
+        <SignupForm />
       </div>
-      <Box mt={8}>
+      <Box mt={5}>
         <Copyright />
       </Box>
     </Container>
   );
 };
-export default Signin;
+export default Signup;

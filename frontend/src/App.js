@@ -1,6 +1,6 @@
 import { BrowserRouter, Switch } from "react-router-dom";
-import Signin from "./pages/auth/signin";
-import Signup from "./pages/auth/signup";
+import Signin from "./pages/signin";
+import Signup from "./pages/signup";
 import Index from "./pages/index";
 import { AuthRoute, LogRoute } from "./components/Auth/Routes";
 
