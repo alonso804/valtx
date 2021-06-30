@@ -15,70 +15,48 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import DashboardIcon from "@material-ui/icons/Dashboard";
-import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
-import PeopleIcon from "@material-ui/icons/People";
 import BarChartIcon from "@material-ui/icons/BarChart";
-import LayersIcon from "@material-ui/icons/Layers";
-import AssignmentIcon from "@material-ui/icons/Assignment";
 import { useHistory } from "react-router-dom";
+import DriveEtaIcon from "@material-ui/icons/DriveEta";
+import SettingsIcon from "@material-ui/icons/Settings";
+import { Link } from "react-router-dom";
 
 import { StorageService } from "../../services/StorageService";
 
 const mainListItems = (
   <div>
-    <ListItem button>
-      <ListItemIcon>
-        <DashboardIcon />
-      </ListItemIcon>
-      <ListItemText primary="Dashboard" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <ShoppingCartIcon />
-      </ListItemIcon>
-      <ListItemText primary="Orders" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <PeopleIcon />
-      </ListItemIcon>
-      <ListItemText primary="Customers" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <BarChartIcon />
-      </ListItemIcon>
-      <ListItemText primary="Reports" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <LayersIcon />
-      </ListItemIcon>
-      <ListItemText primary="Integrations" />
-    </ListItem>
-  </div>
-);
-
-const secondaryListItems = (
-  <div>
-    <ListItem button>
-      <ListItemIcon>
-        <AssignmentIcon />
-      </ListItemIcon>
-      <ListItemText primary="Current month" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <AssignmentIcon />
-      </ListItemIcon>
-      <ListItemText primary="Last quarter" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <AssignmentIcon />
-      </ListItemIcon>
-      <ListItemText primary="Year-end sale" />
-    </ListItem>
+    <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
+      <ListItem button>
+        <ListItemIcon>
+          <DashboardIcon />
+        </ListItemIcon>
+        <ListItemText primary="Inicio" />
+      </ListItem>
+    </Link>
+    <Link to="/vehicular" style={{ textDecoration: "none", color: "inherit" }}>
+      <ListItem button>
+        <ListItemIcon>
+          <DriveEtaIcon />
+        </ListItemIcon>
+        <ListItemText primary="Gestión vehicular" />
+      </ListItem>
+    </Link>
+    <Link to="/reports" style={{ textDecoration: "none", color: "inherit" }}>
+      <ListItem button>
+        <ListItemIcon>
+          <BarChartIcon />
+        </ListItemIcon>
+        <ListItemText primary="Reportes" />
+      </ListItem>
+    </Link>
+    <Link to="/settings" style={{ textDecoration: "none", color: "inherit" }}>
+      <ListItem button>
+        <ListItemIcon>
+          <SettingsIcon />
+        </ListItemIcon>
+        <ListItemText primary="Configuración" />
+      </ListItem>
+    </Link>
   </div>
 );
 
@@ -197,8 +175,6 @@ const Navbar = () => {
         </div>
         <Divider />
         <List>{mainListItems}</List>
-        <Divider />
-        <List>{secondaryListItems}</List>
         <Divider />
         <List>
           <ListItem

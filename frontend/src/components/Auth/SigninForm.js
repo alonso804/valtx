@@ -100,7 +100,7 @@ const SigninForm = () => {
             error={errors.username && touched.username}
           />
           <FormHelperText style={{ color: "red" }}>
-            {errors.password && touched.password && errors.password}
+            {errors.username && touched.username && errors.username}
           </FormHelperText>
           <TextField
             variant="outlined"
