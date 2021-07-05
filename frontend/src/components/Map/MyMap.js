@@ -4,17 +4,17 @@ import { Map, TileLayer } from 'react-leaflet';
 function MyMap() {
     const position = [-12.0850812,-76.9798157]
     return (
-        <Map
-          className="map"
-          center={position}
-          zoom={13}
-          style={{ height: 500, width: 500 }}
-        >
-          <TileLayer
-            attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
-        </Map>
+      <Map
+        className="map"
+        center={position}
+        zoom={13}
+        style={{ height: 500, width: 500 }}
+      >
+        <TileLayer
+          attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png"
+        />
+      </Map>
     );
 }
 
