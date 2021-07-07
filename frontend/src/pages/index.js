@@ -85,7 +85,29 @@ const useStyles = makeStyles((theme) => ({
   },
   recuerda: {
     textAlign: "left",
-    height: "20vh",
+    height: "5vh",
+    fontSize: "20px",
+    fontFamily: "Modern Antiqua",
+  },
+  recuerdaCuadro: {
+    height: "12vh",
+    width: "50vh",
+    border: "3px solid #386dd3",
+    borderRadius: "5px",
+    backgroundColor: "#cbe2ff",
+    TextAlign: "center",
+    color: "black",
+    fontSize: "20px",
+    fontFamily: "Modern Antiqua",
+    marginBottom: "30px",
+    padding: "10px"
+  },
+  recuerdaCuadroTexto: {
+    float: "center",
+  },
+  recuerdaCuadroImagen: {
+    float: "left",
+    marginRight: "30px",
   },
   bienvenidaA: {
     textAlign: "right",
@@ -98,7 +120,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "right",
     height: "5vh",
     color: "black",
-    fontSize: "16px",
+    fontSize: "20px",
     fontFamily: "Modern Antiqua",
   },
   cuadro: {
@@ -131,13 +153,13 @@ const useStyles = makeStyles((theme) => ({
     borderTop: "3px solid #386dd3",
     borderLeft: "3px solid #386dd3",
   },
-  imagenes:{
+  imagenes: {
     textAlign: "center",
     paddingTop: "10",
   },
   textoCuadro: {
     textAlign: "center",
-  }
+  },
 }));
 
 export default function Dashboard() {
@@ -159,7 +181,22 @@ export default function Dashboard() {
       </div>
       <div>
         <h1 className={classes.recuerda}>Recuerda:</h1>
+        <div className={classes.recuerdaCuadro}>
+          <div className={classes.recuerdaCuadroImagen}>
+            <img
+              style="left"
+              src="https://i.ibb.co/JkG5VjZ/image4.png"
+              alt=""
+              style={{ objectFit: "contain", width: "100%", height: "100%" }}
+            />
+          </div>
+          <div className={classes.recuerdaCuadroTexto}>
+            Mantener actualizados los <br />
+            datos del transportista.
+          </div>
+        </div>
       </div>
+
       <Grid container className={classes.cuadro}>
         <Grid item xs={12} className={classes.GridItem}>
           Alertar al conductor en caso:
