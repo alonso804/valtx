@@ -155,7 +155,7 @@ const useStyles = makeStyles((theme) => ({
   },
   imagenes: {
     textAlign: "center",
-    paddingTop: "10",
+    marginTop: "10px",
   },
   textoCuadro: {
     textAlign: "center",
