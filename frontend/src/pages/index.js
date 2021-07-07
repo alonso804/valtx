@@ -75,7 +75,7 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: theme.spacing(4),
   },
   paper: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(4),
     display: "flex",
     overflow: "auto",
     flexDirection: "column",
@@ -83,6 +83,61 @@ const useStyles = makeStyles((theme) => ({
   fixedHeight: {
     height: 240,
   },
+  recuerda: {
+    textAlign: "left",
+    height: "20vh",
+  },
+  bienvenidaA: {
+    textAlign: "right",
+    height: "5vh",
+    color: "#386dd3",
+    fontSize: "40px",
+    fontFamily: "Saira",
+  },
+  bienvenidaB: {
+    textAlign: "right",
+    height: "5vh",
+    color: "black",
+    fontSize: "16px",
+    fontFamily: "Modern Antiqua",
+  },
+  cuadro: {
+    height: "30vh",
+    border: "3px solid #386dd3",
+    borderRadius: "5px",
+    backgroundColor: "#cbe2ff",
+    TextAlign: "center",
+    color: "black",
+    fontSize: "20px",
+    fontFamily: "Modern Antiqua",
+  },
+  GridItem: {
+    backgroundColor: "#cbe2ff",
+  },
+  GridItem1: {
+    height: "25vh",
+    backgroundColor: "#cbe2ff",
+    borderTop: "3px solid #386dd3",
+    borderRight: "3px solid #386dd3",
+  },
+  GridItem2: {
+    height: "25vh",
+    backgroundColor: "#cbe2ff",
+    borderTop: "3px solid #386dd3",
+  },
+  GridItem3: {
+    height: "25vh",
+    backgroundColor: "#cbe2ff",
+    borderTop: "3px solid #386dd3",
+    borderLeft: "3px solid #386dd3",
+  },
+  imagenes:{
+    textAlign: "center",
+    paddingTop: "10",
+  },
+  textoCuadro: {
+    textAlign: "center",
+  }
 }));
 
 export default function Dashboard() {
@@ -90,25 +145,56 @@ export default function Dashboard() {
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
   return (
-    <Grid container spacing={3}>
-      {/* Chart */}
-      <Grid item xs={12} md={8} lg={9}>
-        <Paper className={fixedHeightPaper}>
-          <h2>Chart</h2>
-        </Paper>
+    <div>
+      <div>
+        <h1 className={classes.bienvenidaA}>
+          Bienvenido, <b>Juan Perez</b>
+        </h1>
+      </div>
+      <div>
+        <h1 className={classes.bienvenidaB}>
+          Con V-Truck podrás monitorear vehículos en ruta <br /> y mejorar su
+          productividad
+        </h1>
+      </div>
+      <div>
+        <h1 className={classes.recuerda}>Recuerda:</h1>
+      </div>
+      <Grid container className={classes.cuadro}>
+        <Grid item xs={12} className={classes.GridItem}>
+          Alertar al conductor en caso:
+        </Grid>
+        <Grid item xs={12} sm={4} className={classes.GridItem1}>
+          <div className={classes.imagenes}>
+            <img src="https://i.ibb.co/FKk1pRs/image3.png" />
+          </div>
+          <div className={classes.textoCuadro}>
+            La temperatura de los <br />
+            activos no sea la <br />
+            adecuada.
+          </div>
+        </Grid>
+        <Grid item xs={12} sm={4} className={classes.GridItem2}>
+          <div className={classes.imagenes}>
+            <img src="https://i.ibb.co/S6PNH4F/image1.png" />
+          </div>
+          <div className={classes.textoCuadro}>
+            El vehículo no se <br />
+            encuentre en la ruta <br />
+            establecida.
+          </div>
+        </Grid>
+        <Grid item xs={12} sm={4} className={classes.GridItem3}>
+          <div className={classes.imagenes}>
+            <img src="https://i.ibb.co/C1w0bqt/image2.png" />
+          </div>
+          <div className={classes.textoCuadro}>
+            Se detecte una
+            <br /> apertura de
+            <br /> puerta inusual.
+          </div>
+        </Grid>
       </Grid>
-      {/* Recent Deposits */}
-      <Grid item xs={12} md={4} lg={3}>
-        <Paper className={fixedHeightPaper}>
-          <h2>Deposits</h2>
-        </Paper>
-      </Grid>
-      {/* Recent Orders */}
-      <Grid item xs={12}>
-        <Paper className={classes.paper}>
-          <h2>Orders</h2>
-        </Paper>
-      </Grid>
-    </Grid>
+    </div>
   );
 }
