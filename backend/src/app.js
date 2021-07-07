@@ -7,6 +7,7 @@ import dotenv from "dotenv";
 import { createRoles } from "./libs/initialSetup";
 
 import authRoutes from "./routes/authRoutes";
+import driverRoutes from "./routes/driverRoutes";
 
 const app = express();
 app.disable("x-powered-by");
@@ -34,5 +35,6 @@ app.get("/", (_, res) => {
 });
 
 app.use("/api/auth", authRoutes);
+app.use("/api/driver", driverRoutes);
 
 export default app;

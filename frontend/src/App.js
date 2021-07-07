@@ -4,7 +4,8 @@ import Signup from "./pages/signup";
 import Index from "./pages/index";
 import Vehicular from "./pages/vehicular";
 import Reports from "./pages/reports";
-import Settings from "./pages/settings";
+import Setting from "./pages/setting/index";
+import CreateSetting from "./pages/setting/create-setting";
 import { AuthRoute, LogRoute } from "./components/Auth/Routes";
 
 const App = () => {
@@ -14,7 +15,8 @@ const App = () => {
         <AuthRoute path="/" exact component={Index} />
         <AuthRoute path="/vehicular" exact component={Vehicular} />
         <AuthRoute path="/reports" exact component={Reports} />
-        <AuthRoute path="/settings" exact component={Settings} />
+        <AuthRoute path="/setting" exact component={Setting} />
+        <AuthRoute path="/create-setting" exact component={CreateSetting} />
         <LogRoute path="/signin" exact component={Signin} />
         <LogRoute path="/signup" exact component={Signup} />
       </Switch>

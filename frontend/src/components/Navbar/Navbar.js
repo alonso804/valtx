@@ -49,7 +49,7 @@ const mainListItems = (
         <ListItemText primary="Reportes" />
       </ListItem>
     </Link>
-    <Link to="/settings" style={{ textDecoration: "none", color: "inherit" }}>
+    <Link to="/setting" style={{ textDecoration: "none", color: "inherit" }}>
       <ListItem button>
         <ListItemIcon>
           <SettingsIcon />
