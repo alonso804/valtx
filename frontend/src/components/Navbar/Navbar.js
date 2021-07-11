@@ -33,7 +33,7 @@ const mainListItems = (
         <ListItemText primary="Inicio" />
       </ListItem>
     </Link>
-    <Link to="/vehicular" style={{ textDecoration: "none", color: "inherit" }}>
+    <Link to="/management" style={{ textDecoration: "none", color: "inherit" }}>
       <ListItem button>
         <ListItemIcon>
           <DriveEtaIcon />

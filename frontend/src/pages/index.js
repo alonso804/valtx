@@ -1,8 +1,6 @@
 import React from "react";
-import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
 
 const drawerWidth = 240;
 
@@ -164,7 +162,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Dashboard() {
   const classes = useStyles();
-  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
   return (
     <div>
@@ -203,7 +200,7 @@ export default function Dashboard() {
         </Grid>
         <Grid item xs={12} sm={4} className={classes.GridItem1}>
           <div className={classes.imagenes}>
-            <img src="https://i.ibb.co/FKk1pRs/image3.png" />
+            <img src="https://i.ibb.co/FKk1pRs/image3.png" alt=""/>
           </div>
           <div className={classes.textoCuadro}>
             La temperatura de los <br />
@@ -213,7 +210,7 @@ export default function Dashboard() {
         </Grid>
         <Grid item xs={12} sm={4} className={classes.GridItem2}>
           <div className={classes.imagenes}>
-            <img src="https://i.ibb.co/S6PNH4F/image1.png" />
+            <img src="https://i.ibb.co/S6PNH4F/image1.png" alt=""/>
           </div>
           <div className={classes.textoCuadro}>
             El vehículo no se <br />
@@ -223,7 +220,7 @@ export default function Dashboard() {
         </Grid>
         <Grid item xs={12} sm={4} className={classes.GridItem3}>
           <div className={classes.imagenes}>
-            <img src="https://i.ibb.co/C1w0bqt/image2.png" />
+            <img src="https://i.ibb.co/C1w0bqt/image2.png" alt=""/>
           </div>
           <div className={classes.textoCuadro}>
             Se detecte una
