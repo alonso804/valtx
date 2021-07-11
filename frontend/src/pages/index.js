@@ -122,7 +122,7 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Modern Antiqua",
   },
   cuadro: {
-    height: "30vh",
+    height: "35vh",
     border: "3px solid #386dd3",
     borderRadius: "5px",
     backgroundColor: "#cbe2ff",
@@ -135,18 +135,18 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#cbe2ff",
   },
   GridItem1: {
-    height: "25vh",
+    height: "30vh",
     backgroundColor: "#cbe2ff",
     borderTop: "3px solid #386dd3",
     borderRight: "3px solid #386dd3",
   },
   GridItem2: {
-    height: "25vh",
+    height: "30vh",
     backgroundColor: "#cbe2ff",
     borderTop: "3px solid #386dd3",
   },
   GridItem3: {
-    height: "25vh",
+    height: "30vh",
     backgroundColor: "#cbe2ff",
     borderTop: "3px solid #386dd3",
     borderLeft: "3px solid #386dd3",

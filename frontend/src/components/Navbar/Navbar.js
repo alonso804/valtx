@@ -157,7 +157,7 @@ const Navbar = () => {
             noWrap
             className={classes.title}
           >
-            V-Truck
+          <img src="https://i.ibb.co/WD92m1z/logo-VTruck.png" alt="" height="60" />
           </Typography>
         </Toolbar>
       </AppBar>
