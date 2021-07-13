@@ -54,7 +54,7 @@ const mainListItems = (
         <ListItemIcon>
           <SettingsIcon />
         </ListItemIcon>
-        <ListItemText primary="Configuración" />
+        <ListItemText primary="Administración" />
       </ListItem>
     </Link>
   </div>

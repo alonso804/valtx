@@ -306,7 +306,7 @@ export default function CreateSetting() {
                     color="primary"
                     style={{ width: "100%" }}
                   >
-                    Insertar PDF
+                    Adjuntar contrato físico
                     <input type="file" hidden />
                   </Button>
                 </Grid>

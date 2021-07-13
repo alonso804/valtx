@@ -100,10 +100,9 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "20px",
     fontFamily: "Modern Antiqua",
     marginBottom: "30px",
-    padding: "10px"
-  },
-  recuerdaCuadroTexto: {
-    float: "center",
+    paddingLeft: "10px",
+    display: "flex",
+    alignItems: "center",
   },
   recuerdaCuadroImagen: {
     float: "left",
@@ -135,23 +134,33 @@ const useStyles = makeStyles((theme) => ({
   },
   GridItem: {
     backgroundColor: "#cbe2ff",
+    paddingLeft: "20px",
   },
   GridItem1: {
     height: "25vh",
     backgroundColor: "#cbe2ff",
     borderTop: "3px solid #386dd3",
     borderRight: "3px solid #386dd3",
+    paddingTop: "20px",
+    alignSelf: "center",
+    justifySelf: "center",
   },
   GridItem2: {
     height: "25vh",
     backgroundColor: "#cbe2ff",
     borderTop: "3px solid #386dd3",
+    paddingTop: "20px",
+    alignSelf: "center",
+    justifySelf: "center",
   },
   GridItem3: {
     height: "25vh",
     backgroundColor: "#cbe2ff",
     borderTop: "3px solid #386dd3",
     borderLeft: "3px solid #386dd3",
+    paddingTop: "20px",
+    alignSelf: "center",
+    justifySelf: "center",
   },
   imagenes: {
     textAlign: "center",
