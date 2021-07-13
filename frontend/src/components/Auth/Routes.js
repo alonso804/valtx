@@ -7,7 +7,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import Box from "@material-ui/core/Box";
 import Container from "@material-ui/core/Container";
 
-import Copyright from "../Auth/Copyright";
+import Copyright from "../Copyright/Copyright";
 import Navbar from "../Navbar/Navbar";
 
 const useStyles = makeStyles((theme) => ({

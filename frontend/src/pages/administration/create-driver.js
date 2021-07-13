@@ -9,7 +9,7 @@ import { Formik } from "formik";
 import { FormHelperText } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import { DriverServices } from "../../services/DriverServices";
-import ErrorModal from "../../components/Auth/ErrorModal";
+import ErrorModal from "../../components/Modal/ErrorModal";
 
 const useStyles = makeStyles((theme) => ({
   form: {
@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function CreateSetting() {
+export default function CreateDriver() {
   const classes = useStyles();
   const history = useHistory();
   const [fail, setFail] = useState(false);

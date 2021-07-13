@@ -2,11 +2,11 @@ import { BrowserRouter, Switch } from "react-router-dom";
 import Signin from "./pages/signin";
 import Signup from "./pages/signup";
 import Index from "./pages/index";
-import Vehicular from "./pages/vehicular/index";
-import Mapa from "./pages/vehicular/vehicular";
-import Reports from "./pages/reports";
-import Setting from "./pages/setting/index";
-import CreateSetting from "./pages/setting/create-setting";
+import Management from "./pages/management/index";
+import Mapa from "./pages/management/vehicular";
+import Report from "./pages/report/index";
+import Administration from "./pages/administration/index";
+import CreateDriver from "./pages/administration/create-driver";
 import { AuthRoute, LogRoute } from "./components/Auth/Routes";
 
 const App = () => {
@@ -14,11 +14,15 @@ const App = () => {
     <BrowserRouter>
       <Switch>
         <AuthRoute path="/" exact component={Index} />
-        <AuthRoute path="/vehicular" exact component={Mapa} />
-        <AuthRoute path="/management" exact component={Vehicular} />
-        <AuthRoute path="/reports" exact component={Reports} />
-        <AuthRoute path="/setting" exact component={Setting} />
-        <AuthRoute path="/create-setting" exact component={CreateSetting} />
+        <AuthRoute path="/management/vehicular" exact component={Mapa} />
+        <AuthRoute path="/management" exact component={Management} />
+        <AuthRoute path="/report" exact component={Report} />
+        <AuthRoute path="/administration" exact component={Administration} />
+        <AuthRoute
+          path="/administration/create-driver"
+          exact
+          component={CreateDriver}
+        />
         <LogRoute path="/signin" exact component={Signin} />
         <LogRoute path="/signup" exact component={Signup} />
       </Switch>

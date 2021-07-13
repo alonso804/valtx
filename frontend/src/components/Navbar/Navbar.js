@@ -41,7 +41,7 @@ const mainListItems = (
         <ListItemText primary="Gestión vehicular" />
       </ListItem>
     </Link>
-    <Link to="/reports" style={{ textDecoration: "none", color: "inherit" }}>
+    <Link to="/report" style={{ textDecoration: "none", color: "inherit" }}>
       <ListItem button>
         <ListItemIcon>
           <BarChartIcon />
@@ -49,7 +49,10 @@ const mainListItems = (
         <ListItemText primary="Reportes" />
       </ListItem>
     </Link>
-    <Link to="/setting" style={{ textDecoration: "none", color: "inherit" }}>
+    <Link
+      to="/administration"
+      style={{ textDecoration: "none", color: "inherit" }}
+    >
       <ListItem button>
         <ListItemIcon>
           <SettingsIcon />
@@ -71,6 +74,8 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "flex-end",
     padding: "0 8px",
+    backgroundColor: "#E2E5EE",
+    boxShadow: "0 4px 2px -2px #fff",
     ...theme.mixins.toolbar,
   },
   appBar: {
@@ -79,6 +84,8 @@ const useStyles = makeStyles((theme) => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
+    backgroundColor: "#E2E5EE",
+    boxShadow: "0 4px 2px -2px #fff",
   },
   appBarShift: {
     marginLeft: drawerWidth,
@@ -105,6 +112,7 @@ const useStyles = makeStyles((theme) => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
     }),
+    backgroundColor: "#E2E5EE",
   },
   drawerPaperClose: {
     overflowX: "hidden",
@@ -121,7 +129,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Navbar = () => {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
   const history = useHistory();
 
   const handleDrawerOpen = () => {
@@ -140,7 +148,6 @@ const Navbar = () => {
         <Toolbar className={classes.toolbar}>
           <IconButton
             edge="start"
-            color="inherit"
             aria-label="open drawer"
             onClick={handleDrawerOpen}
             className={clsx(
@@ -157,7 +164,11 @@ const Navbar = () => {
             noWrap
             className={classes.title}
           >
-          <img src="https://i.ibb.co/WD92m1z/logo-VTruck.png" alt="" height="60" />
+            <img
+              src="https://i.ibb.co/WD92m1z/logo-VTruck.png"
+              alt=""
+              height="60"
+            />
           </Typography>
         </Toolbar>
       </AppBar>

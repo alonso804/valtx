@@ -190,7 +190,6 @@ export default function Dashboard() {
         <div className={classes.recuerdaCuadro}>
           <div className={classes.recuerdaCuadroImagen}>
             <img
-              style="left"
               src="https://i.ibb.co/JkG5VjZ/image4.png"
               alt=""
               style={{ objectFit: "contain", width: "100%", height: "100%" }}
@@ -209,7 +208,7 @@ export default function Dashboard() {
         </Grid>
         <Grid item xs={12} sm={4} className={classes.GridItem1}>
           <div className={classes.imagenes}>
-            <img src="https://i.ibb.co/FKk1pRs/image3.png" alt=""/>
+            <img src="https://i.ibb.co/FKk1pRs/image3.png" alt="" />
           </div>
           <div className={classes.textoCuadro}>
             La temperatura de los <br />
@@ -219,7 +218,7 @@ export default function Dashboard() {
         </Grid>
         <Grid item xs={12} sm={4} className={classes.GridItem2}>
           <div className={classes.imagenes}>
-            <img src="https://i.ibb.co/S6PNH4F/image1.png" alt=""/>
+            <img src="https://i.ibb.co/S6PNH4F/image1.png" alt="" />
           </div>
           <div className={classes.textoCuadro}>
             El vehículo no se <br />
@@ -229,7 +228,7 @@ export default function Dashboard() {
         </Grid>
         <Grid item xs={12} sm={4} className={classes.GridItem3}>
           <div className={classes.imagenes}>
-            <img src="https://i.ibb.co/C1w0bqt/image2.png" alt=""/>
+            <img src="https://i.ibb.co/C1w0bqt/image2.png" alt="" />
           </div>
           <div className={classes.textoCuadro}>
             Se detecte una

@@ -4,8 +4,8 @@ import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-import SigninForm from "../components/Auth/SigninForm";
-import Copyright from "../components/Auth/Copyright";
+import SigninForm from "../components/Form/SigninForm";
+import Copyright from "../components/Copyright/Copyright";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
