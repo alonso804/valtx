@@ -1,8 +1,6 @@
 import React from "react";
-import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
 
 const drawerWidth = 240;
 
@@ -123,7 +121,7 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Modern Antiqua",
   },
   cuadro: {
-    height: "30vh",
+    height: "35vh",
     border: "3px solid #386dd3",
     borderRadius: "5px",
     backgroundColor: "#cbe2ff",
@@ -137,7 +135,7 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: "20px",
   },
   GridItem1: {
-    height: "25vh",
+    height: "30vh",
     backgroundColor: "#cbe2ff",
     borderTop: "3px solid #386dd3",
     borderRight: "3px solid #386dd3",
@@ -146,7 +144,7 @@ const useStyles = makeStyles((theme) => ({
     justifySelf: "center",
   },
   GridItem2: {
-    height: "25vh",
+    height: "30vh",
     backgroundColor: "#cbe2ff",
     borderTop: "3px solid #386dd3",
     paddingTop: "20px",
@@ -154,7 +152,7 @@ const useStyles = makeStyles((theme) => ({
     justifySelf: "center",
   },
   GridItem3: {
-    height: "25vh",
+    height: "30vh",
     backgroundColor: "#cbe2ff",
     borderTop: "3px solid #386dd3",
     borderLeft: "3px solid #386dd3",
@@ -173,7 +171,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Dashboard() {
   const classes = useStyles();
-  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
   return (
     <div>
@@ -212,7 +209,7 @@ export default function Dashboard() {
         </Grid>
         <Grid item xs={12} sm={4} className={classes.GridItem1}>
           <div className={classes.imagenes}>
-            <img src="https://i.ibb.co/FKk1pRs/image3.png" />
+            <img src="https://i.ibb.co/FKk1pRs/image3.png" alt=""/>
           </div>
           <div className={classes.textoCuadro}>
             La temperatura de los <br />
@@ -222,7 +219,7 @@ export default function Dashboard() {
         </Grid>
         <Grid item xs={12} sm={4} className={classes.GridItem2}>
           <div className={classes.imagenes}>
-            <img src="https://i.ibb.co/S6PNH4F/image1.png" />
+            <img src="https://i.ibb.co/S6PNH4F/image1.png" alt=""/>
           </div>
           <div className={classes.textoCuadro}>
             El vehículo no se <br />
@@ -232,7 +229,7 @@ export default function Dashboard() {
         </Grid>
         <Grid item xs={12} sm={4} className={classes.GridItem3}>
           <div className={classes.imagenes}>
-            <img src="https://i.ibb.co/C1w0bqt/image2.png" />
+            <img src="https://i.ibb.co/C1w0bqt/image2.png" alt=""/>
           </div>
           <div className={classes.textoCuadro}>
             Se detecte una

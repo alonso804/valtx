@@ -33,7 +33,7 @@ const mainListItems = (
         <ListItemText primary="Inicio" />
       </ListItem>
     </Link>
-    <Link to="/vehicular" style={{ textDecoration: "none", color: "inherit" }}>
+    <Link to="/management" style={{ textDecoration: "none", color: "inherit" }}>
       <ListItem button>
         <ListItemIcon>
           <DriveEtaIcon />
@@ -157,7 +157,7 @@ const Navbar = () => {
             noWrap
             className={classes.title}
           >
-            V-Truck
+          <img src="https://i.ibb.co/WD92m1z/logo-VTruck.png" alt="" height="60" />
           </Typography>
         </Toolbar>
       </AppBar>

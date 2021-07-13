@@ -2,7 +2,8 @@ import { BrowserRouter, Switch } from "react-router-dom";
 import Signin from "./pages/signin";
 import Signup from "./pages/signup";
 import Index from "./pages/index";
-import Vehicular from "./pages/vehicular";
+import Vehicular from "./pages/vehicular/index";
+import Mapa from "./pages/vehicular/vehicular";
 import Reports from "./pages/reports";
 import Setting from "./pages/setting/index";
 import CreateSetting from "./pages/setting/create-setting";
@@ -13,7 +14,8 @@ const App = () => {
     <BrowserRouter>
       <Switch>
         <AuthRoute path="/" exact component={Index} />
-        <AuthRoute path="/vehicular" exact component={Vehicular} />
+        <AuthRoute path="/vehicular" exact component={Mapa} />
+        <AuthRoute path="/management" exact component={Vehicular} />
         <AuthRoute path="/reports" exact component={Reports} />
         <AuthRoute path="/setting" exact component={Setting} />
         <AuthRoute path="/create-setting" exact component={CreateSetting} />
