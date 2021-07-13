@@ -2,11 +2,7 @@ import React from "react";
 import useStyles from "./useStyles";
 import Modal from "@material-ui/core/Modal";
 
-const ErrorModal = ({
-  open = false,
-  message = "Hay un error",
-  handleClose,
-}) => {
+const SuccessModal = ({ open = false, message = "Éxito", handleClose }) => {
   const classes = useStyles();
 
   return (
@@ -19,11 +15,10 @@ const ErrorModal = ({
         className={classes.modal}
       >
         <div className={classes.paper}>
-          <h2 id="simple-modal-title">Ups!</h2>
-          <p id="simple-modal-description">{message}</p>
+          <h2 id="simple-modal-title">{message}!</h2>
         </div>
       </Modal>
     </div>
   );
 };
-export default ErrorModal;
+export default SuccessModal;

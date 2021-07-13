@@ -27,12 +27,11 @@ const useStyles = makeStyles((theme) => ({
 
 const SignupForm = () => {
   const classes = useStyles();
-  const [fail, setFail] = useState(false);
-  const [failMessage, setFailMessage] = useState("");
+  const [fail, setFail] = useState({ open: false, message: "" });
   const history = useHistory();
 
   const handleClose = () => {
-    setFail(false);
+    setFail({ open: false, message: "" });
   };
 
   return (
@@ -91,8 +90,7 @@ const SignupForm = () => {
           .catch((err) => {
             console.log("[Sign Up] Error al registrar");
             console.error(err);
-            setFail(true);
-            setFailMessage(err.response.data.message);
+            setFail({ open: true, message: err.response.data.message });
           });
         setSubmitting(false);
       }}
@@ -214,8 +212,8 @@ const SignupForm = () => {
             </Grid>
           </Grid>
           <ErrorModal
-            fail={fail}
-            message={failMessage}
+            open={fail.open}
+            message={fail.message}
             handleClose={handleClose}
           />
         </form>

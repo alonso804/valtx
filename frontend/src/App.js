@@ -7,6 +7,7 @@ import Mapa from "./pages/management/vehicular";
 import Report from "./pages/report/index";
 import Administration from "./pages/administration/index";
 import CreateDriver from "./pages/administration/create-driver";
+import EditDriver from "./pages/administration/edit-driver/[id]";
 import { AuthRoute, LogRoute } from "./components/Auth/Routes";
 
 const App = () => {
@@ -22,6 +23,11 @@ const App = () => {
           path="/administration/create-driver"
           exact
           component={CreateDriver}
+        />
+        <AuthRoute
+          path="/administration/edit-driver/:id"
+          exact
+          component={EditDriver}
         />
         <LogRoute path="/signin" exact component={Signin} />
         <LogRoute path="/signup" exact component={Signup} />

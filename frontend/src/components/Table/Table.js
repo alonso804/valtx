@@ -12,6 +12,8 @@ import Button from "@material-ui/core/Button";
 import Container from "@material-ui/core/Container";
 import LaunchIcon from "@material-ui/icons/Launch";
 import SearchIcon from "@material-ui/icons/Search";
+import DeleteIcon from "@material-ui/icons/Delete";
+import { DriverServices } from "../../services/DriverServices";
 
 const StyledTableCell = withStyles(() => ({
   head: {
@@ -44,18 +46,24 @@ const formatDate = (date) => {
   return tempDate[2] + "-" + tempDate[1] + "-" + tempDate[0];
 };
 
-export default function Management({ data, detailPath }) {
+export default function ContentTable({ data, detailPath }) {
   const classes = useStyles();
   const history = useHistory();
-
-  const seeDetails = (e) => {
-    e.preventDefault();
-    history.push(detailPath);
-  };
 
   const filter = (e) => {
     e.preventDefault();
     console.log("Presionaste detalle");
+  };
+
+  const deleteDriver = (driverId) => {
+    DriverServices.delete(driverId)
+      .then((res) => {
+        console.log(res.data);
+        history.go(0);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -116,8 +124,21 @@ export default function Management({ data, detailPath }) {
                     align="center"
                     style={{ borderRight: "none" }}
                   >
-                    <Button onClick={seeDetails}>
+                    <Button
+                      onClick={(e) => {
+                        e.preventDefault();
+                        history.push(`${detailPath}/${item._id}`);
+                      }}
+                    >
                       <LaunchIcon />
+                    </Button>
+                    <Button
+                      onClick={(e) => {
+                        e.preventDefault();
+                        deleteDriver(item._id);
+                      }}
+                    >
+                      <DeleteIcon />
                     </Button>
                   </StyledTableCell>
                 </StyledTableRow>

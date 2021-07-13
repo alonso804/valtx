@@ -27,12 +27,11 @@ const useStyles = makeStyles((theme) => ({
 
 const SigninForm = () => {
   const classes = useStyles();
-  const [fail, setFail] = useState(false);
-  const [failMessage, setFailMessage] = useState("");
+  const [fail, setFail] = useState({ open: false, message: "" });
   const history = useHistory();
 
   const handleClose = () => {
-    setFail(false);
+    setFail({ open: false, message: "" });
   };
 
   return (
@@ -68,8 +67,7 @@ const SigninForm = () => {
           .catch((err) => {
             console.log("[Sign In] Error al iniciar sesión");
             console.error(err);
-            setFail(true);
-            setFailMessage(err.response.data.message);
+            setFail({ open: true, message: err.response.data.message });
           });
         console.log(values);
         setSubmitting(false);
@@ -142,8 +140,8 @@ const SigninForm = () => {
             </Grid>
           </Grid>
           <ErrorModal
-            fail={fail}
-            message={failMessage}
+            open={fail.open}
+            message={fail.message}
             handleClose={handleClose}
           />
         </form>
