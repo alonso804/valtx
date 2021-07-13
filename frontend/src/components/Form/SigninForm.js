@@ -59,8 +59,11 @@ const SigninForm = () => {
       onSubmit={(values, { setSubmitting }) => {
         AuthServices.signin(values)
           .then((res) => {
-            StorageService.setJWT(res.data.token);
+            const { token, userId } = res.data;
+            StorageService.setJWT(token);
+            StorageService.setUserId(userId);
             console.log("saved jwt: ", StorageService.getJWT());
+            console.log("saved user: ", StorageService.getUserId());
             console.log("Logeado");
             history.push("/");
           })
@@ -105,7 +108,7 @@ const SigninForm = () => {
             margin="normal"
             fullWidth
             name="password"
-            label="Password"
+            label="Contraseña"
             type="password"
             id="password"
             value={values.password}

@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
+import { UserServices } from "../services/UserServices";
+import { StorageService } from "../services/StorageService";
+import Seo from "../components/SEO/Seo";
 
 const drawerWidth = 240;
 
@@ -171,72 +174,91 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Dashboard() {
   const classes = useStyles();
+  const [name, setName] = useState("");
+
+  const getUser = () => {
+    UserServices.get(StorageService.getUserId())
+      .then((res) => {
+        const { user } = res.data;
+        setName(`${user.firstName} ${user.lastName}`);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  useEffect(() => {
+    getUser();
+  }, []);
 
   return (
-    <div>
+    <>
+      <Seo />
       <div>
-        <h1 className={classes.bienvenidaA}>
-          Bienvenido, <b>Juan Perez</b>
-        </h1>
-      </div>
-      <div>
-        <h1 className={classes.bienvenidaB}>
-          Con V-Truck podrás monitorear vehículos en ruta <br /> y mejorar su
-          productividad
-        </h1>
-      </div>
-      <div>
-        <h1 className={classes.recuerda}>Recuerda:</h1>
-        <div className={classes.recuerdaCuadro}>
-          <div className={classes.recuerdaCuadroImagen}>
-            <img
-              src="https://i.ibb.co/JkG5VjZ/image4.png"
-              alt=""
-              style={{ objectFit: "contain", width: "100%", height: "100%" }}
-            />
-          </div>
-          <div className={classes.recuerdaCuadroTexto}>
-            Mantener actualizados los <br />
-            datos del transportista.
+        <div>
+          <h1 className={classes.bienvenidaA}>
+            Bienvenido, <b>{name}</b>
+          </h1>
+        </div>
+        <div>
+          <h1 className={classes.bienvenidaB}>
+            Con V-Truck podrás monitorear vehículos en ruta <br /> y mejorar su
+            productividad
+          </h1>
+        </div>
+        <div>
+          <h1 className={classes.recuerda}>Recuerda:</h1>
+          <div className={classes.recuerdaCuadro}>
+            <div className={classes.recuerdaCuadroImagen}>
+              <img
+                src="https://i.ibb.co/JkG5VjZ/image4.png"
+                alt=""
+                style={{ objectFit: "contain", width: "100%", height: "100%" }}
+              />
+            </div>
+            <div className={classes.recuerdaCuadroTexto}>
+              Mantener actualizados los <br />
+              datos del transportista.
+            </div>
           </div>
         </div>
-      </div>
 
-      <Grid container className={classes.cuadro}>
-        <Grid item xs={12} className={classes.GridItem}>
-          Alertar al conductor en caso:
+        <Grid container className={classes.cuadro}>
+          <Grid item xs={12} className={classes.GridItem}>
+            Alertar al conductor en caso:
+          </Grid>
+          <Grid item xs={12} sm={4} className={classes.GridItem1}>
+            <div className={classes.imagenes}>
+              <img src="https://i.ibb.co/FKk1pRs/image3.png" alt="" />
+            </div>
+            <div className={classes.textoCuadro}>
+              La temperatura de los <br />
+              activos no sea la <br />
+              adecuada.
+            </div>
+          </Grid>
+          <Grid item xs={12} sm={4} className={classes.GridItem2}>
+            <div className={classes.imagenes}>
+              <img src="https://i.ibb.co/S6PNH4F/image1.png" alt="" />
+            </div>
+            <div className={classes.textoCuadro}>
+              El vehículo no se <br />
+              encuentre en la ruta <br />
+              establecida.
+            </div>
+          </Grid>
+          <Grid item xs={12} sm={4} className={classes.GridItem3}>
+            <div className={classes.imagenes}>
+              <img src="https://i.ibb.co/C1w0bqt/image2.png" alt="" />
+            </div>
+            <div className={classes.textoCuadro}>
+              Se detecte una
+              <br /> apertura de
+              <br /> puerta inusual.
+            </div>
+          </Grid>
         </Grid>
-        <Grid item xs={12} sm={4} className={classes.GridItem1}>
-          <div className={classes.imagenes}>
-            <img src="https://i.ibb.co/FKk1pRs/image3.png" alt="" />
-          </div>
-          <div className={classes.textoCuadro}>
-            La temperatura de los <br />
-            activos no sea la <br />
-            adecuada.
-          </div>
-        </Grid>
-        <Grid item xs={12} sm={4} className={classes.GridItem2}>
-          <div className={classes.imagenes}>
-            <img src="https://i.ibb.co/S6PNH4F/image1.png" alt="" />
-          </div>
-          <div className={classes.textoCuadro}>
-            El vehículo no se <br />
-            encuentre en la ruta <br />
-            establecida.
-          </div>
-        </Grid>
-        <Grid item xs={12} sm={4} className={classes.GridItem3}>
-          <div className={classes.imagenes}>
-            <img src="https://i.ibb.co/C1w0bqt/image2.png" alt="" />
-          </div>
-          <div className={classes.textoCuadro}>
-            Se detecte una
-            <br /> apertura de
-            <br /> puerta inusual.
-          </div>
-        </Grid>
-      </Grid>
-    </div>
+      </div>
+    </>
   );
 }

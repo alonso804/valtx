@@ -8,6 +8,7 @@ import { createRoles } from "./libs/initialSetup";
 
 import authRoutes from "./routes/authRoutes";
 import driverRoutes from "./routes/driverRoutes";
+import userRoutes from "./routes/userRoutes";
 
 const app = express();
 app.disable("x-powered-by");
@@ -36,5 +37,6 @@ app.get("/", (_, res) => {
 
 app.use("/api/auth", authRoutes);
 app.use("/api/driver", driverRoutes);
+app.use("/api/user", userRoutes);
 
 export default app;

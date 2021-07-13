@@ -1,5 +1,6 @@
 import React from "react";
 import VTruckNotFound from "../assets/404-valtx.png";
+import Typography from "@material-ui/core/Typography";
 
 const NotFound = () => {
   return (
@@ -12,7 +13,9 @@ const NotFound = () => {
       }}
     >
       <img src={VTruckNotFound} alt="not found" />
-      <h2>Página no encontrada</h2>
+      <Typography component="h2" variant="h5">
+        Página no encontrada
+      </Typography>
     </div>
   );
 };

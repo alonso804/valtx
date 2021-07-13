@@ -113,7 +113,7 @@ const SignupForm = () => {
                 name="firstName"
                 variant="outlined"
                 id="firstName"
-                label="First Name"
+                label="Nombre"
                 autoFocus
                 value={values.firstName}
                 onChange={handleChange}
@@ -129,7 +129,7 @@ const SignupForm = () => {
                 variant="outlined"
                 fullWidth
                 id="lastName"
-                label="Last Name"
+                label="Apellido"
                 name="lastName"
                 value={values.lastName}
                 onChange={handleChange}
@@ -146,7 +146,7 @@ const SignupForm = () => {
                 variant="outlined"
                 fullWidth
                 id="email"
-                label="Email Address"
+                label="Correo electrónico"
                 name="email"
                 autoComplete="email"
                 value={values.email}
@@ -180,7 +180,7 @@ const SignupForm = () => {
                 variant="outlined"
                 fullWidth
                 name="password"
-                label="Password"
+                label="Contraseña"
                 type="password"
                 id="password"
                 value={values.password}

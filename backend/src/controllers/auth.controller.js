@@ -4,10 +4,10 @@ import jwt from "jsonwebtoken";
 import config from "../config";
 
 export const signup = async (req, res) => {
-  const { name, lastName, username, email, password, roles } = req.body;
+  const { firstName, lastName, username, email, password, roles } = req.body;
 
   const newUser = new User({
-    name,
+    firstName,
     lastName,
     username,
     email,
@@ -64,14 +64,13 @@ export const signin = async (req, res) => {
     expiresIn: 86400,
   });
 
-  //const decoded = jwt.verify(token, config.SECRET);
-  //let userId = decoded.id;
-
   console.log("[SIGN IN] Saved User");
   console.log(userFound);
-  //console.log(userId);
 
-  return res
-    .status(200)
-    .json({ token, ok: true, message: "Usuario encontrado" });
+  return res.status(200).json({
+    ok: true,
+    message: "Usuario encontrado",
+    token,
+    userId: userFound._id,
+  });
 };

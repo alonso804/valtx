@@ -3,4 +3,5 @@ export class CommonService {
   static signinUrl = CommonService.baseUrl + "/api/auth/signin";
   static signupUrl = CommonService.baseUrl + "/api/auth/signup";
   static driverUrl = CommonService.baseUrl + "/api/driver";
+  static userUrl = CommonService.baseUrl + "/api/user";
 }

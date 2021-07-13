@@ -16,7 +16,7 @@ driverRoutes.get("/get-drivers", getDrivers);
 
 driverRoutes.get("/get-driver/:id", getDriver);
 
-driverRoutes.put("/update-driver/:id", checkDuplicateDni, updateDriver);
+driverRoutes.put("/update-driver/:id", updateDriver);
 
 driverRoutes.delete("/delete-driver/:id", deleteDriver);
 
