@@ -1,5 +1,5 @@
 import React from "react";
-import Table from "../../components/Table/Table";
+import ContentTable from "../../components/ContentTable/ContentTable";
 
 function createData(
   _id,
@@ -79,7 +79,7 @@ const data = [
 export default function Report() {
   return (
     <>
-      <Table data={data} detailPath={"/management/vehicular"} />
+      <ContentTable data={data} detailPath={"/management/vehicular"} />
     </>
   );
 }

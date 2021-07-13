@@ -64,8 +64,12 @@ export const signin = async (req, res) => {
     expiresIn: 86400,
   });
 
+  //const decoded = jwt.verify(token, config.SECRET);
+  //let userId = decoded.id;
+
   console.log("[SIGN IN] Saved User");
   console.log(userFound);
+  //console.log(userId);
 
   return res
     .status(200)

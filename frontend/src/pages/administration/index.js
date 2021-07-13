@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Table from "../../components/Table/Table";
+import ContentTable from "../../components/ContentTable/ContentTable";
 import { useHistory } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import Container from "@material-ui/core/Container";
@@ -9,14 +9,21 @@ const Setting = () => {
   const history = useHistory();
   const [drivers, setDrivers] = useState([]);
 
-  useEffect(() => {
+  const getAllDrivers = () => {
     DriverServices.getAll()
       .then((res) => {
         setDrivers(res.data.drivers);
       })
       .catch((err) => {
+        if (err.response.data.message === "No hay conductores") {
+          setDrivers([]);
+        }
         console.log(err);
       });
+  };
+
+  useEffect(() => {
+    getAllDrivers();
   }, []);
 
   const createDriver = (e) => {
@@ -41,10 +48,11 @@ const Setting = () => {
       {drivers.length === 0 ? (
         <h2>No hay conductores</h2>
       ) : (
-        <Table
+        <ContentTable
           data={drivers}
           detailPath={"/administration/edit-driver"}
-          delete={true}
+          remove={true}
+          getData={getAllDrivers}
         />
       )}
     </>

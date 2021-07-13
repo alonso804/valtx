@@ -10,7 +10,7 @@ const EditDriver = () => {
   const { id } = useParams();
   const [driver, setDriver] = useState(null);
 
-  useEffect(() => {
+  const getDriver = () => {
     DriverServices.get(id)
       .then((res) => {
         setDriver(res.data.driver);
@@ -18,6 +18,10 @@ const EditDriver = () => {
       .catch((err) => {
         console.log(err);
       });
+  };
+
+  useEffect(() => {
+    getDriver();
   }, []);
 
   if (!driver) {

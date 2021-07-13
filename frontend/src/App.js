@@ -2,6 +2,7 @@ import { BrowserRouter, Switch } from "react-router-dom";
 import Signin from "./pages/signin";
 import Signup from "./pages/signup";
 import Index from "./pages/index";
+import NotFound from "./pages/404";
 import Management from "./pages/management/index";
 import Mapa from "./pages/management/vehicular";
 import Report from "./pages/report/index";
@@ -15,7 +16,7 @@ const App = () => {
     <BrowserRouter>
       <Switch>
         <AuthRoute path="/" exact component={Index} />
-        <AuthRoute path="/management/vehicular" exact component={Mapa} />
+        <AuthRoute path="/management/vehicular/:id" exact component={Mapa} />
         <AuthRoute path="/management" exact component={Management} />
         <AuthRoute path="/report" exact component={Report} />
         <AuthRoute path="/administration" exact component={Administration} />
@@ -31,6 +32,7 @@ const App = () => {
         />
         <LogRoute path="/signin" exact component={Signin} />
         <LogRoute path="/signup" exact component={Signup} />
+        <AuthRoute component={NotFound} />
       </Switch>
     </BrowserRouter>
   );

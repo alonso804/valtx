@@ -46,7 +46,7 @@ const formatDate = (date) => {
   return tempDate[2] + "-" + tempDate[1] + "-" + tempDate[0];
 };
 
-export default function ContentTable({ data, detailPath }) {
+const ContentTable = ({ data, detailPath, remove, getData }) => {
   const classes = useStyles();
   const history = useHistory();
 
@@ -59,7 +59,8 @@ export default function ContentTable({ data, detailPath }) {
     DriverServices.delete(driverId)
       .then((res) => {
         console.log(res.data);
-        history.go(0);
+        //history.go(0);
+        getData();
       })
       .catch((err) => {
         console.log(err);
@@ -137,6 +138,7 @@ export default function ContentTable({ data, detailPath }) {
                         e.preventDefault();
                         deleteDriver(item._id);
                       }}
+                      style={{ display: `${remove ? "inline-flex" : "none"}` }}
                     >
                       <DeleteIcon />
                     </Button>
@@ -149,4 +151,5 @@ export default function ContentTable({ data, detailPath }) {
       </TableContainer>
     </>
   );
-}
+};
+export default ContentTable;
