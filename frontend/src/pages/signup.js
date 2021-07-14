@@ -6,6 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Container } from "@material-ui/core";
 import SignupForm from "../components/Form/SignupForm";
 import Copyright from "../components/Copyright/Copyright";
+import Seo from "../components/SEO/Seo";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -20,18 +21,21 @@ const Signup = () => {
   const classes = useStyles();
 
   return (
-    <Container component="main" maxWidth="xs">
-      <CssBaseline />
-      <div className={classes.paper}>
-        <Typography component="h1" variant="h5">
-          Registrarte
-        </Typography>
-        <SignupForm />
-      </div>
-      <Box mt={5}>
-        <Copyright />
-      </Box>
-    </Container>
+    <>
+      <Seo title="VTruck | Registro" />
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <div className={classes.paper}>
+          <Typography component="h1" variant="h5">
+            Registrarte
+          </Typography>
+          <SignupForm />
+        </div>
+        <Box mt={5}>
+          <Copyright />
+        </Box>
+      </Container>
+    </>
   );
 };
 export default Signup;

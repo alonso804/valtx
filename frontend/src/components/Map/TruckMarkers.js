@@ -1,7 +1,7 @@
-import React, { Fragment } from 'react'
-import {Marker} from 'react-leaflet';
-import { TruckLocationIcon } from "./VenueLocationIcon";
-import MarkerPopup from './MarkerPopup';
+import React, { Fragment } from "react";
+import { Marker } from "react-leaflet";
+import { TruckLocationIcon } from "./TruckLocationIcon";
+import MarkerPopup from "./MarkerPopup";
 
 const TruckMarkers = (props) => {
   const { camiones } = props;

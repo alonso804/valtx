@@ -15,24 +15,51 @@ const App = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <AuthRoute path="/" exact component={Index} />
-        <AuthRoute path="/management/vehicular/:id" exact component={Mapa} />
-        <AuthRoute path="/management" exact component={Management} />
-        <AuthRoute path="/report" exact component={Report} />
-        <AuthRoute path="/administration" exact component={Administration} />
         <AuthRoute
+          title="VTruck | Dashboard"
+          path="/"
+          exact
+          component={Index}
+        />
+        <AuthRoute
+          title="VTruck | Ubicación"
+          path="/management/vehicular/:id"
+          exact
+          component={Mapa}
+        />
+        <AuthRoute
+          title="VTruck | Gestión Vehicular"
+          path="/management"
+          exact
+          component={Management}
+        />
+        <AuthRoute
+          title="VTruck | Reportes"
+          path="/report"
+          exact
+          component={Report}
+        />
+        <AuthRoute
+          title="VTruck | Administración"
+          path="/administration"
+          exact
+          component={Administration}
+        />
+        <AuthRoute
+          title="VTruck | Crear conductor"
           path="/administration/create-driver"
           exact
           component={CreateDriver}
         />
         <AuthRoute
+          title="VTruck | Editar conductor"
           path="/administration/edit-driver/:id"
           exact
           component={EditDriver}
         />
         <LogRoute path="/signin" exact component={Signin} />
         <LogRoute path="/signup" exact component={Signup} />
-        <AuthRoute component={NotFound} />
+        <AuthRoute title="VTruck | 404 page" component={NotFound} />
       </Switch>
     </BrowserRouter>
   );

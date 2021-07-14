@@ -9,6 +9,7 @@ import Container from "@material-ui/core/Container";
 
 import Copyright from "../Copyright/Copyright";
 import Navbar from "../Navbar/Navbar";
+import Seo from "../SEO/Seo";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,23 +27,26 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const AuthRoute = ({ ...rest }) => {
+export const AuthRoute = ({ title, ...rest }) => {
   const classes = useStyles();
 
   return StorageService.isLoggedIn() ? (
-    <div className={classes.root}>
-      <CssBaseline />
-      <Navbar />
-      <main className={classes.content}>
-        <div className={classes.appBarSpacer} />
-        <Container maxWidth="lg" className={classes.container}>
-          <Route {...rest} />
-          <Box pt={4}>
-            <Copyright />
-          </Box>
-        </Container>
-      </main>
-    </div>
+    <>
+      <Seo title={title} />
+      <div className={classes.root}>
+        <CssBaseline />
+        <Navbar />
+        <main className={classes.content}>
+          <div className={classes.appBarSpacer} />
+          <Container maxWidth="lg" className={classes.container}>
+            <Route {...rest} />
+            <Box pt={4}>
+              <Copyright />
+            </Box>
+          </Container>
+        </main>
+      </div>
+    </>
   ) : (
     <Redirect to="/signin" />
   );

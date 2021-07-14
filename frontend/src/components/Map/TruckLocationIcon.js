@@ -1,5 +1,6 @@
-import L from 'leaflet';
+import L from "leaflet";
 import camionLogo from "../../assets/camionLogo.svg";
+
 export const TruckLocationIcon = L.icon({
   iconUrl: camionLogo,
   iconRetinaUrl: camionLogo,

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
-import Link from "@material-ui/core/Link";
+import { Link } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import { FormHelperText } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
@@ -206,9 +206,7 @@ const SignupForm = () => {
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              <Link href="/signin" variant="body2">
-                ¿Ya tienes cuenta? Inicia sesión
-              </Link>
+              <Link to="/signin">{"¿Ya tienes cuenta? Inicia sesión"}</Link>
             </Grid>
           </Grid>
           <ErrorModal

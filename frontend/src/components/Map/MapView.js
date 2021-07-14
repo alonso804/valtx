@@ -1,10 +1,9 @@
-import React,{ useState } from 'react';
-import { Map, TileLayer } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';
-import data from '../../assets/data';
-import Markers from './VenueMarkers';
+import React from "react";
+import { Map, TileLayer } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
+import Markers from "./TruckMarkers";
 
-function MapView({coords}) {
+function MapView({ coords }) {
   const position = [-12.0850812, -76.9798157];
 
   return (
