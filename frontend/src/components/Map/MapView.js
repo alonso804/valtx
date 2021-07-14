@@ -4,7 +4,7 @@ import "leaflet/dist/leaflet.css";
 import Markers from "./TruckMarkers";
 
 function MapView({ truck }) {
-  const position = [-12.0850812, -76.9798157];
+  const position = truck.coordinates;
 
   return (
     <Map
@@ -17,7 +17,7 @@ function MapView({ truck }) {
         attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png"
       />
-
+      
       <Markers truck={truck} />
     </Map>
   );
