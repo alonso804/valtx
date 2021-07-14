@@ -3,7 +3,7 @@ import { Map, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import Markers from "./TruckMarkers";
 
-function MapView({ coords }) {
+function MapView({ truck }) {
   const position = [-12.0850812, -76.9798157];
 
   return (
@@ -18,7 +18,7 @@ function MapView({ coords }) {
         url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png"
       />
 
-      <Markers camiones={coords} />
+      <Markers truck={truck} />
     </Map>
   );
 }

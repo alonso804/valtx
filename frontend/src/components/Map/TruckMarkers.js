@@ -3,13 +3,11 @@ import { Marker } from "react-leaflet";
 import { TruckLocationIcon } from "./TruckLocationIcon";
 import MarkerPopup from "./MarkerPopup";
 
-const TruckMarkers = (props) => {
-  const { camiones } = props;
-
+const TruckMarkers = ({ truck }) => {
   return (
     <Fragment>
-      <Marker position={camiones.coordenadas} icon={TruckLocationIcon}>
-        <MarkerPopup data={camiones} />
+      <Marker position={truck.coordinates} icon={TruckLocationIcon}>
+        <MarkerPopup data={truck} />
       </Marker>
     </Fragment>
   );

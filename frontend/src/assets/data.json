@@ -1,49 +1,69 @@
 {
-    "camiones": [
-        {
-            "id": 1,
-            "conductor": "Pedro",
-            "placa": "AEA-789",
-            "coordenadas": [
-                -12.083619, 
-                -76.971988
-            ]
-        },
-        {
-            "id": 2,
-            "conductor": "Juan",
-            "placa": "PGR-438",
-            "coordenadas": [
-                -12.088409, 
-                -77.006687
-            ]
-        },
-        {
-            "id": 3,
-            "conductor": "Luis",
-            "placa": "TBH-488",
-            "coordenadas": [
-                -12.074363, 
-                -77.010998
-            ]
-        },
-        {
-            "id": 4,
-            "conductor": "Alonso",
-            "placa": "CPP-348",
-            "coordenadas": [
-                -12.113396, 
-                -77.026279
-            ]
-        },
-        {
-            "id": 5,
-            "conductor": "Pepe",
-            "placa": "PBJ-112",
-            "coordenadas": [
-                -12.116959, 
-                -76.977475
-            ]
-        }
-    ]
+  "trucks": [
+    {
+      "_id": 1,
+      "coordinates": [-12.083619, -76.971988],
+      "name": "Pedro",
+      "dni": 78945612,
+      "business": "San Fernando",
+      "startDate": "2021-07-20",
+      "endDate": "2021-07-21",
+      "phoneNumber": 987654321,
+      "vehiclePlate": "AEA-789",
+      "vehicleModel": "Hyundai",
+      "vehicleType": "Transporte de medicamentos"
+    },
+    {
+      "_id": 2,
+      "coordinates": [-12.088409, -77.006687],
+      "name": "Juan",
+      "dni": 43678529,
+      "business": "Linio",
+      "startDate": "2021-07-20",
+      "endDate": "2021-07-21",
+      "phoneNumber": 984568245,
+      "vehiclePlate": "PGR-438",
+      "vehicleModel": "Audi",
+      "vehicleType": "Transporte de armas"
+    },
+    {
+      "_id": 3,
+      "coordinates": [-12.074363, -77.010998],
+      "name": "Luis",
+      "dni": 56874239,
+      "business": "Nutrishop",
+      "startDate": "2021-07-20",
+      "endDate": "2021-07-21",
+      "phoneNumber": 964785214,
+      "vehiclePlate": "TBH-488",
+      "vehicleModel": "BMW",
+      "vehicleType": "Transporte de mascotas"
+    },
+    {
+      "_id": 4,
+      "coordinates": [-12.113396, -77.026279],
+      "name": "Alonso",
+      "dni": 78569423,
+      "business": "Amazon",
+      "startDate": "2021-07-20",
+      "endDate": "2021-07-21",
+      "phoneNumber": 967458245,
+      "vehiclePlate": "CPP-348",
+      "vehicleModel": "Opel",
+      "vehicleType": "Transporte de productos"
+    },
+    {
+      "_id": 5,
+      "coordinates": [-12.116959, -76.977475],
+      "name": "Pepe",
+      "dni": 76842594,
+      "business": "Polvos Azules",
+      "startDate": "2021-07-20",
+      "endDate": "2021-07-21",
+      "phoneNumber": 912445845,
+      "vehiclePlate": "PBJ-112",
+      "vehicleModel": "Ford",
+      "vehicleType": "Transporte de celulares"
+    }
+  ]
 }
