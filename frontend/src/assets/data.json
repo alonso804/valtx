@@ -11,7 +11,22 @@
       "phoneNumber": 987654321,
       "vehiclePlate": "AEA-789",
       "vehicleModel": "Hyundai",
-      "vehicleType": "Transporte de medicamentos"
+      "vehicleType": "Transporte de medicamentos",
+      "gps": {
+        "startHourOrigin": "10:00 a.m.",
+        "origin": "Lima",
+        "destiny": "Arequipa"
+      },
+      "temperature": {
+        "zone": "Carga",
+        "demanded": 15,
+        "current": 13
+      },
+      "doors": {
+        "zone": "Carga",
+        "lastHourOpen": "11:00 a.m.",
+        "timesOpened": 3
+      }
     },
     {
       "_id": 2,
@@ -24,7 +39,22 @@
       "phoneNumber": 984568245,
       "vehiclePlate": "PGR-438",
       "vehicleModel": "Audi",
-      "vehicleType": "Transporte de armas"
+      "vehicleType": "Transporte de armas",
+      "gps": {
+        "startHourOrigin": "12:00 p.m.",
+        "origin": "Piura",
+        "destiny": "Lima"
+      },
+      "temperature": {
+        "zone": "Carga",
+        "demanded": 20,
+        "current": 22
+      },
+      "doors": {
+        "zone": "Carga",
+        "lastHourOpen": "11:00 a.m.",
+        "timesOpened": 4
+      }
     },
     {
       "_id": 3,
@@ -37,7 +67,22 @@
       "phoneNumber": 964785214,
       "vehiclePlate": "TBH-488",
       "vehicleModel": "BMW",
-      "vehicleType": "Transporte de mascotas"
+      "vehicleType": "Transporte de mascotas",
+      "gps": {
+        "startHourOrigin": "11:00 a.m.",
+        "origin": "Anchash",
+        "destiny": "Huancayo"
+      },
+      "temperature": {
+        "zone": "Carga",
+        "demanded": 10,
+        "current": 9
+      },
+      "doors": {
+        "zone": "Carga",
+        "lastHourOpen": "11:00 a.m.",
+        "timesOpened": 0
+      }
     },
     {
       "_id": 4,
@@ -50,7 +95,22 @@
       "phoneNumber": 967458245,
       "vehiclePlate": "CPP-348",
       "vehicleModel": "Opel",
-      "vehicleType": "Transporte de productos"
+      "vehicleType": "Transporte de productos",
+      "gps": {
+        "startHourOrigin": "6:00 a.m.",
+        "origin": "Piura",
+        "destiny": "Tumbes"
+      },
+      "temperature": {
+        "zone": "Carga",
+        "demanded": 10,
+        "current": 12
+      },
+      "doors": {
+        "zone": "Carga",
+        "lastHourOpen": "1:00 a.m.",
+        "timesOpened": 1
+      }
     },
     {
       "_id": 5,
@@ -63,7 +123,22 @@
       "phoneNumber": 912445845,
       "vehiclePlate": "PBJ-112",
       "vehicleModel": "Ford",
-      "vehicleType": "Transporte de celulares"
+      "vehicleType": "Transporte de celulares",
+      "gps": {
+        "startHourOrigin": "10:00 a.m.",
+        "origin": "Loreto",
+        "destiny": "Piura"
+      },
+      "temperature": {
+        "zone": "Carga",
+        "demanded": 24,
+        "current": 20
+      },
+      "doors": {
+        "zone": "Carga",
+        "lastHourOpen": "1:00 p.m.",
+        "timesOpened": 2
+      }
     }
   ]
 }

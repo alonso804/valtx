@@ -9,6 +9,7 @@ import Report from "./pages/report/index";
 import Administration from "./pages/administration/index";
 import CreateDriver from "./pages/administration/create-driver";
 import EditDriver from "./pages/administration/edit-driver/[id]";
+import Monitoring from "./pages/report/monitoring/[id]";
 import { AuthRoute, LogRoute } from "./components/Auth/Routes";
 
 const App = () => {
@@ -22,22 +23,28 @@ const App = () => {
           component={Index}
         />
         <AuthRoute
-          title="VTruck | Ubicación"
-          path="/management/vehicular/:id"
-          exact
-          component={Mapa}
-        />
-        <AuthRoute
           title="VTruck | Gestión Vehicular"
           path="/management"
           exact
           component={Management}
         />
         <AuthRoute
+          title="VTruck | Ubicación"
+          path="/management/vehicular/:id"
+          exact
+          component={Mapa}
+        />
+        <AuthRoute
           title="VTruck | Reportes"
           path="/report"
           exact
           component={Report}
+        />
+        <AuthRoute
+          title="VTruck | Monitoreo"
+          path="/report/monitoring/:id"
+          exact
+          component={Monitoring}
         />
         <AuthRoute
           title="VTruck | Administración"

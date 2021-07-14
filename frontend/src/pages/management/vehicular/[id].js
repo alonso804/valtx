@@ -18,7 +18,7 @@ export default function Mapa() {
   return (
     <>
       <div className={classes.mapa}>
-        <MapView coords={data.camiones[parseInt(id) - 1]} />
+        <MapView truck={data.trucks[parseInt(id) - 1]} />
       </div>
     </>
   );

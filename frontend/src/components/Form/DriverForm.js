@@ -10,6 +10,7 @@ import { useHistory } from "react-router-dom";
 import { DriverServices } from "../../services/DriverServices";
 import ErrorModal from "../Modal/ErrorModal";
 import SuccessModal from "../Modal/SuccessModal";
+import ReturnButton from "../Button/ReturnButton";
 
 const useStyles = makeStyles((theme) => ({
   form: {
@@ -340,18 +341,7 @@ const DriverForm = ({
           </Grid>
           <Grid container item spacing={1} style={{ width: "50%" }}>
             <Grid item xs={12} sm={6}>
-              <Button
-                type="submit"
-                variant="contained"
-                color="primary"
-                className={classes.submit}
-                onClick={(e) => {
-                  e.preventDefault();
-                  history.push("/administration");
-                }}
-              >
-                Regresar
-              </Button>
+              <ReturnButton path="/administration" width="100%" />
             </Grid>
             <Grid item xs={12} sm={6}>
               <Button

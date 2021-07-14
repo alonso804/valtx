@@ -19,7 +19,7 @@ export default function Report() {
           Reportes
         </Typography>
       </Container>
-      <ContentTable data={data.trucks} detailPath={"/management/vehicular"} />
+      <ContentTable data={data.trucks} detailPath={"/report/monitoring"} />
     </>
   );
 }
