@@ -1,27 +1,48 @@
 {
-    "venues": [
+    "camiones": [
         {
-            "description": "Schon seit längerem wollte Rummel sich sein kleines Paradies schaffen, hat tiefe stille Wasser betörnt und stürmischen Zeiten getrotzt und hat endlich geankert - in einer schönen kleinen Bucht nicht weit von Euch! In diese Bucht läd Rummel von Mai bis Mitte September zum Chillen und Grillen, zum Schunkeln, Munkeln und natürlich Trunkeln. Und wenn Rummel mal so richtig gut drauf ist, dann wird auch mal ordentlich gerummelt! So oder so, zu Wasser wie zur Bucht, auch der Rummel ist nichts ohne seine Crew. Also Leichtmatrosen und Matrösinnen - kommt rum und lasst es Euch gut gehn! Ahoi* Ach ja, geöffnet ist nur an sonnigen und regenfreien Tagen :) ________________ Reservierungsanfragen sind nur per Mail möglich bucht@rummels-welt.de (Reservierungsanfragen werden nur zwischen Di-Fr beantwortet) ",
-            "name": "Rummels Bucht",
-            "geometry": [
-                52.500772,
-                13.472764
+            "id": 1,
+            "conductor": "Pedro",
+            "placa": "AEA-789",
+            "coordenadas": [
+                -12.083619, 
+                -76.971988
             ]
         },
         {
-            "description": "Das SEZ bietet ein großes Sport-, Freizeit- und Erholungsangebot. Ab sofort könnt ihr das SEZ für Events unter: sez@glut.berlin anmieten. Kommt vorbei und genießt den industriellen Charm einer in Vergessenheit geglaubten Location. ",
-            "name": "SEZ Berlin",
-            "geometry": [
-                52.527025,
-                13.446139
+            "id": 2,
+            "conductor": "Juan",
+            "placa": "PGR-438",
+            "coordenadas": [
+                -12.088409, 
+                -77.006687
             ]
         },
         {
-            "description": "Das Huxleys seit fast einem Jahrhundert ein Name in Berlin. Varietébühne, Sportpalast, Rollschuhbahn und Ausflugsziel am Rande des Volksparks Hasenheide. Das HUXLEYS hat eine lange Geschichte, und die ist verbunden mit Entertainment, Vergnügen und Livemusik.",
-            "name": "Huxley's Neue Welt",
-            "geometry": [
-                52.486319,
-                13.421437
+            "id": 3,
+            "conductor": "Luis",
+            "placa": "TBH-488",
+            "coordenadas": [
+                -12.074363, 
+                -77.010998
+            ]
+        },
+        {
+            "id": 4,
+            "conductor": "Alonso",
+            "placa": "CPP-348",
+            "coordenadas": [
+                -12.113396, 
+                -77.026279
+            ]
+        },
+        {
+            "id": 5,
+            "conductor": "Pepe",
+            "placa": "PBJ-112",
+            "coordenadas": [
+                -12.116959, 
+                -76.977475
             ]
         }
     ]
