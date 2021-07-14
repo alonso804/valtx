@@ -4,7 +4,7 @@ import Signup from "./pages/signup";
 import Index from "./pages/index";
 import NotFound from "./pages/404";
 import Management from "./pages/management/index";
-import Mapa from "./pages/management/vehicular";
+import Mapa from "./pages/management/vehicular/[id]";
 import Report from "./pages/report/index";
 import Administration from "./pages/administration/index";
 import CreateDriver from "./pages/administration/create-driver";

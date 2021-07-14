@@ -1,6 +1,8 @@
 import React from "react";
-import MyMap from "../../components/Map/MyMap";
+import MapView from "../../../components/Map/MapView";
 import { makeStyles } from "@material-ui/core/styles";
+import data from "../../../assets/data";
+import { useParams } from "react-router-dom";
 
 const useStyles = makeStyles(() => ({
   mapa: {
@@ -11,11 +13,12 @@ const useStyles = makeStyles(() => ({
 }));
 
 export default function Mapa() {
+  const { id } = useParams();
   const classes = useStyles();
   return (
     <>
       <div className={classes.mapa}>
-        <MyMap />
+        <MapView coords={data.camiones[parseInt(id) - 1]} />
       </div>
     </>
   );
