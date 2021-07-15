@@ -1,8 +1,8 @@
 import app from "./app";
 import "./database";
 
-const PORT = process.env.PORT || 4000;
+const port = process.env.PORT || 4000;
 
-app.listen(PORT);
+app.listen(port);
 
-console.log(`Server listen on port ${PORT}`);
+console.log(`Server listen on port ${port}`);
