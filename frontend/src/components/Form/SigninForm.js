@@ -9,6 +9,7 @@ import { AuthServices } from "../../services/AuthServices";
 import { StorageService } from "../../services/StorageService";
 import ErrorModal from "../Modal/ErrorModal";
 import { Link, useHistory } from "react-router-dom";
+import { inputError, errorMessage } from "./errors";
 
 const useStyles = makeStyles((theme) => ({
   avatar: {
@@ -97,10 +98,10 @@ const SigninForm = () => {
             autoFocus
             onChange={handleChange}
             onBlur={handleBlur}
-            error={errors.username && touched.username}
+            error={inputError(errors, touched, "username")}
           />
           <FormHelperText style={{ color: "red" }}>
-            {errors.username && touched.username && errors.username}
+            {errorMessage(errors, touched, "username")}
           </FormHelperText>
           <TextField
             variant="outlined"
@@ -114,10 +115,10 @@ const SigninForm = () => {
             autoComplete="current-password"
             onChange={handleChange}
             onBlur={handleBlur}
-            error={errors.password && touched.password}
+            error={inputError(errors, touched, "password")}
           />
           <FormHelperText style={{ color: "red" }}>
-            {errors.password && touched.password && errors.password}
+            {errorMessage(errors, touched, "password")}
           </FormHelperText>
           <Button
             type="submit"

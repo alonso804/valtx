@@ -9,6 +9,7 @@ import { Formik } from "formik";
 import { AuthServices } from "../../services/AuthServices";
 import { StorageService } from "../../services/StorageService";
 import ErrorModal from "../Modal/ErrorModal";
+import { inputError, errorMessage } from "./errors";
 
 const useStyles = makeStyles((theme) => ({
   avatar: {
@@ -117,10 +118,10 @@ const SignupForm = () => {
                 value={values.firstName}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                error={errors.firstName && touched.firstName}
+                error={inputError(errors, touched, "firstName")}
               />
               <FormHelperText style={{ color: "red" }}>
-                {errors.firstName && touched.firstName && errors.firstName}
+                {errorMessage(errors, touched, "firstName")}
               </FormHelperText>
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -134,10 +135,10 @@ const SignupForm = () => {
                 onChange={handleChange}
                 autoComplete="lname"
                 onBlur={handleBlur}
-                error={errors.lastName && touched.lastName}
+                error={inputError(errors, touched, "lastName")}
               />
               <FormHelperText style={{ color: "red" }}>
-                {errors.lastName && touched.lastName && errors.lastName}
+                {errorMessage(errors, touched, "lastName")}
               </FormHelperText>
             </Grid>
             <Grid item xs={12}>
@@ -151,10 +152,10 @@ const SignupForm = () => {
                 value={values.email}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                error={errors.email && touched.email}
+                error={inputError(errors, touched, "email")}
               />
               <FormHelperText style={{ color: "red" }}>
-                {errors.email && touched.email && errors.email}
+                {errorMessage(errors, touched, "email")}
               </FormHelperText>
             </Grid>
             <Grid item xs={12}>
@@ -168,10 +169,10 @@ const SignupForm = () => {
                 value={values.username}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                error={errors.username && touched.username}
+                error={inputError(errors, touched, "username")}
               />
               <FormHelperText style={{ color: "red" }}>
-                {errors.username && touched.username && errors.username}
+                {errorMessage(errors, touched, "username")}
               </FormHelperText>
             </Grid>
             <Grid item xs={12}>
@@ -186,10 +187,10 @@ const SignupForm = () => {
                 autoComplete="current-password"
                 onChange={handleChange}
                 onBlur={handleBlur}
-                error={errors.password && touched.password}
+                error={inputError(errors, touched, "password")}
               />
               <FormHelperText style={{ color: "red" }}>
-                {errors.password && touched.password && errors.password}
+                {errorMessage(errors, touched, "password")}
               </FormHelperText>
             </Grid>
           </Grid>

@@ -11,6 +11,7 @@ import { DriverServices } from "../../services/DriverServices";
 import ErrorModal from "../Modal/ErrorModal";
 import SuccessModal from "../Modal/SuccessModal";
 import ReturnButton from "../Button/ReturnButton";
+import { inputError, errorMessage } from "./errors";
 
 const useStyles = makeStyles((theme) => ({
   form: {
@@ -168,10 +169,10 @@ const DriverForm = ({
                 value={values.name}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                error={errors.name && touched.name}
+                error={inputError(errors, touched, "name")}
               />
               <FormHelperText style={{ color: "red" }}>
-                {errors.name && touched.name && errors.name}
+                {errorMessage(errors, touched, "name")}
               </FormHelperText>
               <TextField
                 variant="outlined"
@@ -183,10 +184,10 @@ const DriverForm = ({
                 value={values.dni}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                error={errors.dni && touched.dni}
+                error={inputError(errors, touched, "dni")}
               />
               <FormHelperText style={{ color: "red" }}>
-                {errors.dni && touched.dni && errors.dni}
+                {errorMessage(errors, touched, "dni")}
               </FormHelperText>
               <TextField
                 variant="outlined"
@@ -198,12 +199,10 @@ const DriverForm = ({
                 value={values.vehiclePlate}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                error={errors.vehiclePlate && touched.vehiclePlate}
+                error={inputError(errors, touched, "vehiclePlate")}
               />
               <FormHelperText style={{ color: "red" }}>
-                {errors.vehiclePlate &&
-                  touched.vehiclePlate &&
-                  errors.vehiclePlate}
+                {errorMessage(errors, touched, "vehiclePlate")}
               </FormHelperText>
               <TextField
                 variant="outlined"
@@ -215,12 +214,10 @@ const DriverForm = ({
                 value={values.phoneNumber}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                error={errors.phoneNumber && touched.phoneNumber}
+                error={inputError(errors, touched, "phoneNumber")}
               />
               <FormHelperText style={{ color: "red" }}>
-                {errors.phoneNumber &&
-                  touched.phoneNumber &&
-                  errors.phoneNumber}
+                {errorMessage(errors, touched, "phoneNumber")}
               </FormHelperText>
               <Grid container spacing={1}>
                 <Grid item xs>
@@ -238,10 +235,10 @@ const DriverForm = ({
                     value={values.startDate}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    error={errors.startDate && touched.startDate}
+                    error={inputError(errors, touched, "startDate")}
                   />
                   <FormHelperText style={{ color: "red" }}>
-                    {errors.startDate && touched.startDate && errors.startDate}
+                    {errorMessage(errors, touched, "startDate")}
                   </FormHelperText>
                 </Grid>
                 <Grid item xs>
@@ -259,10 +256,10 @@ const DriverForm = ({
                     value={values.endDate}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    error={errors.endDate && touched.endDate}
+                    error={inputError(errors, touched, "endDate")}
                   />
                   <FormHelperText style={{ color: "red" }}>
-                    {errors.endDate && touched.endDate && errors.endDate}
+                    {errorMessage(errors, touched, "endDate")}
                   </FormHelperText>
                 </Grid>
               </Grid>
@@ -276,10 +273,10 @@ const DriverForm = ({
                 value={values.business}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                error={errors.business && touched.business}
+                error={inputError(errors, touched, "business")}
               />
               <FormHelperText style={{ color: "red" }}>
-                {errors.business && touched.business && errors.business}
+                {errorMessage(errors, touched, "business")}
               </FormHelperText>
               <TextField
                 variant="outlined"
@@ -291,12 +288,10 @@ const DriverForm = ({
                 value={values.observations}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                error={errors.observations && touched.observations}
+                error={inputError(errors, touched, "observations")}
               />
               <FormHelperText style={{ color: "red" }}>
-                {errors.observations &&
-                  touched.observations &&
-                  errors.observations}
+                {errorMessage(errors, touched, "observations")}
               </FormHelperText>
             </Grid>
             <Grid
