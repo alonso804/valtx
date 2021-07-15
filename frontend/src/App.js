@@ -4,12 +4,12 @@ import Signup from "./pages/signup";
 import Index from "./pages/index";
 import NotFound from "./pages/NotFound";
 import Management from "./pages/management/index";
-import Mapa from "./pages/management/vehicular/[id]";
+import Mapa from "./pages/management/vehicular/Mapa";
 import Report from "./pages/report/index";
 import Administration from "./pages/administration/index";
 import CreateDriver from "./pages/administration/create-driver";
-import EditDriver from "./pages/administration/edit-driver/[id]";
-import Monitoring from "./pages/report/monitoring/[id]";
+import EditDriver from "./pages/administration/editdriver/edit-driver";
+import Monitoring from "./pages/report/monitoring/Monitoring";
 import { AuthRoute, LogRoute } from "./components/Auth/Routes";
 
 const App = () => {
