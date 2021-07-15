@@ -2,7 +2,7 @@ import { BrowserRouter, Switch } from "react-router-dom";
 import Signin from "./pages/signin";
 import Signup from "./pages/signup";
 import Index from "./pages/index";
-import NotFound from "./pages/404";
+import NotFound from "./pages/NotFound";
 import Management from "./pages/management/index";
 import Mapa from "./pages/management/vehicular/[id]";
 import Report from "./pages/report/index";

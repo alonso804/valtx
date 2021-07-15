@@ -8,8 +8,7 @@ import { Formik } from "formik";
 import { AuthServices } from "../../services/AuthServices";
 import { StorageService } from "../../services/StorageService";
 import ErrorModal from "../Modal/ErrorModal";
-import { useHistory } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   avatar: {

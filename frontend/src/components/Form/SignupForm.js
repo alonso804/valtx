@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import { FormHelperText } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
@@ -9,7 +9,6 @@ import { Formik } from "formik";
 import { AuthServices } from "../../services/AuthServices";
 import { StorageService } from "../../services/StorageService";
 import ErrorModal from "../Modal/ErrorModal";
-import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   avatar: {

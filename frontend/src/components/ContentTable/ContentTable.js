@@ -59,7 +59,6 @@ const ContentTable = ({ data, detailPath, remove, getData }) => {
     DriverServices.delete(driverId)
       .then((res) => {
         console.log(res.data);
-        //history.go(0);
         getData();
       })
       .catch((err) => {

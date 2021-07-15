@@ -16,10 +16,9 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import BarChartIcon from "@material-ui/icons/BarChart";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import DriveEtaIcon from "@material-ui/icons/DriveEta";
 import SettingsIcon from "@material-ui/icons/Settings";
-import { Link } from "react-router-dom";
 
 import { StorageService } from "../../services/StorageService";
 
