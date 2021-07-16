@@ -3,8 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import { UserServices } from "../services/UserServices";
 import { StorageService } from "../services/StorageService";
-
-const drawerWidth = 240;
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -102,6 +101,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Dashboard() {
   const classes = useStyles();
   const [name, setName] = useState("");
+  const history = useHistory();
 
   const getUser = () => {
     UserServices.get(StorageService.getUserId())
@@ -111,6 +111,8 @@ export default function Dashboard() {
       })
       .catch((err) => {
         console.log(err);
+        StorageService.logout();
+        history.push("/signin");
       });
   };
 
