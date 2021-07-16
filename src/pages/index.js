@@ -118,6 +118,10 @@ export default function Dashboard() {
       });
   };
 
+  useEffect(() => {
+    getUser();
+  }, []);
+
   if (!name) {
     return (
       <Box pt={4} style={{ display: "flex", justifyContent: "center" }}>
@@ -125,10 +129,6 @@ export default function Dashboard() {
       </Box>
     );
   }
-
-  useEffect(() => {
-    getUser();
-  }, []);
 
   return (
     <div>
