@@ -8,6 +8,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Formik } from "formik";
 import { AuthServices } from "../../services/AuthServices";
 import { StorageService } from "../../services/StorageService";
+import { CommonService } from "../../services/CommonService";
 import ErrorModal from "../Modal/ErrorModal";
 import { inputError, errorMessage } from "./errors";
 
@@ -80,6 +81,7 @@ const SignupForm = () => {
         return errors;
       }}
       onSubmit={(values, { setSubmitting }) => {
+        console.log(CommonService.baseUrl);
         AuthServices.signup(values)
           .then((res) => {
             StorageService.setJWT(res.data.token);
