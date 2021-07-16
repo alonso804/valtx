@@ -37,12 +37,12 @@ const SigninForm = () => {
   return (
     <Formik
       initialValues={{
-        username: "alonso804",
-        password: "1234",
         /*
-         *username: "",
-         *password: "",
+         *username: "alonso804",
+         *password: "1234",
          */
+        username: "",
+        password: "",
       }}
       validate={(values) => {
         const errors = {};
