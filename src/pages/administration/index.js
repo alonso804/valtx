@@ -8,7 +8,7 @@ import Typography from "@material-ui/core/Typography";
 
 const Setting = () => {
   const history = useHistory();
-  const [drivers, setDrivers] = useState([]);
+  const [drivers, setDrivers] = useState(null);
 
   const getAllDrivers = () => {
     DriverServices.getAll()
@@ -16,9 +16,6 @@ const Setting = () => {
         setDrivers(res.data.drivers);
       })
       .catch((err) => {
-        if (err.response.data.message === "No hay conductores") {
-          setDrivers([]);
-        }
         console.log(err);
       });
   };
@@ -26,6 +23,14 @@ const Setting = () => {
   useEffect(() => {
     getAllDrivers();
   }, []);
+
+  if (!drivers) {
+    return (
+      <Box pt={4} style={{ display: "flex", justifyContent: "center" }}>
+        <Loader type="Puff" color="#E2E5EE" height={100} width={100} />
+      </Box>
+    );
+  }
 
   const createDriver = (e) => {
     e.preventDefault();

@@ -100,7 +100,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Dashboard() {
   const classes = useStyles();
-  const [name, setName] = useState("");
+  const [name, setName] = useState(null);
   const history = useHistory();
 
   const getUser = () => {
@@ -115,6 +115,14 @@ export default function Dashboard() {
         history.push("/signin");
       });
   };
+
+  if (!name) {
+    return (
+      <Box pt={4} style={{ display: "flex", justifyContent: "center" }}>
+        <Loader type="Puff" color="#E2E5EE" height={100} width={100} />
+      </Box>
+    );
+  }
 
   useEffect(() => {
     getUser();
