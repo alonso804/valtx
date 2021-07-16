@@ -5,6 +5,8 @@ import Button from "@material-ui/core/Button";
 import { DriverServices } from "../../services/DriverServices";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
+import Box from "@material-ui/core/Box";
+import Loader from "react-loader-spinner";
 
 const Setting = () => {
   const history = useHistory();

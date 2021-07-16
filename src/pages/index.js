@@ -4,6 +4,8 @@ import Grid from "@material-ui/core/Grid";
 import { UserServices } from "../services/UserServices";
 import { StorageService } from "../services/StorageService";
 import { useHistory } from "react-router-dom";
+import Box from "@material-ui/core/Box";
+import Loader from "react-loader-spinner";
 
 const useStyles = makeStyles((theme) => ({
   container: {

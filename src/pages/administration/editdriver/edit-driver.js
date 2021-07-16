@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import Box from "@material-ui/core/Box";
 import DriverForm from "../../../components/Form/DriverForm";
 import { useParams } from "react-router-dom";
 import { DriverServices } from "../../../services/DriverServices";
+import Box from "@material-ui/core/Box";
 import Loader from "react-loader-spinner";
 
 const EditDriver = () => {
