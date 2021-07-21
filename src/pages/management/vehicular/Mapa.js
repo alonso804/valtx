@@ -5,58 +5,43 @@ import data from "../../../assets/data";
 import { useParams } from "react-router-dom";
 
 const useStyles = makeStyles(() => ({
-  mapa: {
-    float: "left",
-    marginLeft: 50,
-  },
-  titulo: {
-    marginLeft: 250,
+  container: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
     fontSize: "20px",
+    textAlign: "center",
+  },
+  data: {
+    width: "40%",
   },
   textoCuadro: {
-    fontSize: "20px",
-    height: "15vh",
-    width: "50vh",
-    backgroundColor: "#cbe2ff",
     border: "3px solid #386dd3",
-    borderRadius: "10px",
-    paddingTop: "10px",
-    float: "right",
-    marginRight: 150,
-    marginTop: 5,
-    paddingLeft: "40px",
-  },
-  textoCuadro2: {
-    fontSize: "20px",
-    height: "15vh",
-    width: "50vh",
+    borderRadius: "5px",
     backgroundColor: "#cbe2ff",
-    border: "3px solid #386dd3",
-    borderRadius: "10px",
-    paddingTop: "10px",
-    float: "right",
-    marginRight: 150,
-    marginTop: 5,
-    paddingLeft: "40px",
+    padding: "20px",
+    textAlign: "left",
+    lineHeight: "150%",
   },
 }));
 
 export default function Mapa() {
   const { id } = useParams();
   const classes = useStyles();
+
+  const pageData = data.trucks[parseInt(id) - 1];
+
   return (
-    <div
-      style={{
-        height: "75vh",
-      }}
-    >
+    <div className={classes.container}>
       <div>
-        <p className={classes.titulo}>Rastreo GPS</p>
+        <div>
+          <p>Rastreo GPS</p>
+        </div>
+        <div className={classes.mapa}>
+          <MapView truck={pageData} />
+        </div>
       </div>
-      <div className={classes.mapa}>
-        <MapView truck={data.trucks[parseInt(id) - 1]} />
-      </div>
-      <div>
+      <div className={classes.data}>
         <p
           style={{
             fontSize: "20px",
@@ -66,23 +51,19 @@ export default function Mapa() {
           Datos del conductor
         </p>
         <div className={classes.textoCuadro}>
-          Nombre:  <br />
-          DNI:  <br />
-          Empresa: 
+          Nombre: {pageData.name}
+          <br />
+          DNI: {pageData.dni}
+          <br />
+          Empresa: {pageData.business}
         </div>
-        <p
-          style={{
-            fontSize: "20px",
-            textAlign: "center",
-            marginTop: 200,
-          }}
-        >
-          Datos del vehículo
-        </p>
-        <div className={classes.textoCuadro2}>
-          Modelo: <br />
-          Placa: <br />
-          Tipo:
+        <p>Datos del vehículo</p>
+        <div className={classes.textoCuadro}>
+          Modelo: {pageData.vehicleModel}
+          <br />
+          Placa: {pageData.vehiclePlate}
+          <br />
+          Tipo: {pageData.vehicleType}
         </div>
       </div>
     </div>

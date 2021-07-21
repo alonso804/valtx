@@ -19,22 +19,17 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Modern Antiqua",
   },
   recuerdaCuadro: {
-    height: "12vh",
-    width: "50vh",
+    fontFamily: "Modern Antiqua",
     border: "3px solid #386dd3",
     borderRadius: "5px",
-    backgroundColor: "#cbe2ff",
-    TextAlign: "center",
-    color: "black",
-    fontSize: "20px",
-    fontFamily: "Modern Antiqua",
-    marginBottom: "30px",
-    paddingLeft: "10px",
-    display: "flex",
+    display: "inline-flex",
     alignItems: "center",
+    backgroundColor: "#cbe2ff",
+    padding: "20px",
+    fontSize: "20px",
+    justifyContent: "space-around",
   },
   recuerdaCuadroImagen: {
-    float: "left",
     marginRight: "30px",
   },
   bienvenidaA: {
@@ -52,48 +47,27 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Modern Antiqua",
   },
   cuadro: {
-    height: "35vh",
+    marginTop: "30px",
     border: "3px solid #386dd3",
     borderRadius: "5px",
     backgroundColor: "#cbe2ff",
-    TextAlign: "center",
-    color: "black",
     fontSize: "20px",
     fontFamily: "Modern Antiqua",
+    overflow: "hidden",
   },
-  GridItem: {
+  gridTitle: {
     backgroundColor: "#cbe2ff",
-    paddingLeft: "20px",
+    padding: "20px",
+    alignSelf: "center",
+    borderBottom: "3px solid #386dd3",
   },
-  GridItem1: {
-    height: "30vh",
-    backgroundColor: "#cbe2ff",
-    borderTop: "3px solid #386dd3",
+  gridContainer: {
     borderRight: "3px solid #386dd3",
-    paddingTop: "20px",
-    alignSelf: "center",
-    justifySelf: "center",
-  },
-  GridItem2: {
-    height: "30vh",
-    backgroundColor: "#cbe2ff",
-    borderTop: "3px solid #386dd3",
-    paddingTop: "20px",
-    alignSelf: "center",
-    justifySelf: "center",
-  },
-  GridItem3: {
-    height: "30vh",
-    backgroundColor: "#cbe2ff",
-    borderTop: "3px solid #386dd3",
-    borderLeft: "3px solid #386dd3",
-    paddingTop: "20px",
-    alignSelf: "center",
-    justifySelf: "center",
-  },
-  imagenes: {
-    textAlign: "center",
-    marginTop: "10px",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: "30px 0",
   },
   textoCuadro: {
     textAlign: "center",
@@ -138,13 +112,13 @@ export default function Dashboard() {
         </h1>
       </div>
       <div>
-        <h1 className={classes.bienvenidaB}>
+        <h2 className={classes.bienvenidaB}>
           Con V-Truck podrás monitorear vehículos en ruta <br /> y mejorar su
           productividad
-        </h1>
+        </h2>
       </div>
       <div>
-        <h1 className={classes.recuerda}>Recuerda:</h1>
+        <h2 className={classes.recuerda}>Recuerda:</h2>
         <div className={classes.recuerdaCuadro}>
           <div className={classes.recuerdaCuadroImagen}>
             <img
@@ -153,7 +127,7 @@ export default function Dashboard() {
               style={{ objectFit: "contain", width: "100%", height: "100%" }}
             />
           </div>
-          <div className={classes.recuerdaCuadroTexto}>
+          <div>
             Mantener actualizados los <br />
             datos del transportista.
           </div>
@@ -161,11 +135,11 @@ export default function Dashboard() {
       </div>
 
       <Grid container className={classes.cuadro}>
-        <Grid item xs={12} className={classes.GridItem}>
+        <Grid item xs={12} className={classes.gridTitle}>
           Alertar al conductor en caso:
         </Grid>
-        <Grid item xs={12} sm={4} className={classes.GridItem1}>
-          <div className={classes.imagenes}>
+        <Grid item container xs={12} sm={4} className={classes.gridContainer}>
+          <div>
             <img src="https://i.ibb.co/FKk1pRs/image3.png" alt="" />
           </div>
           <div className={classes.textoCuadro}>
@@ -174,8 +148,8 @@ export default function Dashboard() {
             adecuada.
           </div>
         </Grid>
-        <Grid item xs={12} sm={4} className={classes.GridItem2}>
-          <div className={classes.imagenes}>
+        <Grid item xs={12} sm={4} className={classes.gridContainer}>
+          <div>
             <img src="https://i.ibb.co/S6PNH4F/image1.png" alt="" />
           </div>
           <div className={classes.textoCuadro}>
@@ -184,8 +158,14 @@ export default function Dashboard() {
             establecida.
           </div>
         </Grid>
-        <Grid item xs={12} sm={4} className={classes.GridItem3}>
-          <div className={classes.imagenes}>
+        <Grid
+          item
+          xs={12}
+          sm={4}
+          className={classes.gridContainer}
+          style={{ border: "none" }}
+        >
+          <div>
             <img src="https://i.ibb.co/C1w0bqt/image2.png" alt="" />
           </div>
           <div className={classes.textoCuadro}>
