@@ -62,14 +62,14 @@ const SigninForm = () => {
             const { token, userId } = res.data;
             StorageService.setJWT(token);
             StorageService.setUserId(userId);
-            console.log("saved jwt: ", StorageService.getJWT());
-            console.log("saved user: ", StorageService.getUserId());
-            console.log("Logeado");
+            //console.log("saved jwt: ", StorageService.getJWT());
+            //console.log("saved user: ", StorageService.getUserId());
+            //console.log("Logeado");
             history.push("/");
           })
           .catch((err) => {
-            console.log("[Sign In] Error al iniciar sesión");
-            console.error(err);
+            //console.log("[Sign In] Error al iniciar sesión");
+            //console.error(err);
             setFail({ open: true, message: err.response.data.message });
           });
         console.log(values);

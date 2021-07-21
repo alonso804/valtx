@@ -29,24 +29,24 @@ const useStyles = makeStyles((theme) => ({
 
 const DriverForm = ({
   initialValues = {
-    name: "Alonso Barrios",
-    dni: "72226665",
-    vehiclePlate: "Y1C-566",
-    phoneNumber: "946248222",
-    startDate: "2021-07-07",
-    endDate: "2021-07-15",
-    business: "Mi negocio",
-    observations: "Ninguna observacion",
     /*
-     *name: "",
-     *dni: "",
-     *vehiclePlate: "",
-     *phoneNumber: "",
-     *startDate: "",
-     *endDate: "",
-     *business: "",
-     *observations: "",
+     *name: "Alonso Barrios",
+     *dni: "72226665",
+     *vehiclePlate: "Y1C-566",
+     *phoneNumber: "946248222",
+     *startDate: "2021-07-07",
+     *endDate: "2021-07-15",
+     *business: "Mi negocio",
+     *observations: "Ninguna observacion",
      */
+    name: "",
+    dni: "",
+    vehiclePlate: "",
+    phoneNumber: "",
+    startDate: "",
+    endDate: "",
+    business: "",
+    observations: "",
   },
   action = "Registrar",
   driverId = null,
@@ -59,16 +59,16 @@ const DriverForm = ({
   const createDriver = (values) => {
     DriverServices.create(values)
       .then((res) => {
-        console.log("Conductor creado correctamente");
-        console.log(res);
+        //console.log("Conductor creado correctamente");
+        //console.log(res);
         setSuccess({
           open: true,
           message: "Conductor creado exitosamente",
         });
       })
       .catch((err) => {
-        console.log("[Crear Conductor] Error al crear conductor");
-        console.error(err);
+        //console.log("[Crear Conductor] Error al crear conductor");
+        //console.error(err);
         setFail({ open: true, message: err.response.data.message });
       });
   };
@@ -76,16 +76,16 @@ const DriverForm = ({
   const updateDriver = (values) => {
     DriverServices.update(driverId, values)
       .then((res) => {
-        console.log("Conductor actualizado correctamente");
-        console.log(res);
+        //console.log("Conductor actualizado correctamente");
+        //console.log(res);
         setSuccess({
           open: true,
           message: "Conductor actualizado exitosamente",
         });
       })
       .catch((err) => {
-        console.log("[Actualizar Conductor] Error al actualizar conductor");
-        console.error(err);
+        //console.log("[Actualizar Conductor] Error al actualizar conductor");
+        //console.error(err);
         setFail({ open: true, message: err.response.data.message });
       });
   };
@@ -143,7 +143,7 @@ const DriverForm = ({
       }}
       onSubmit={(values, { setSubmitting }) => {
         action === "Registrar" ? createDriver(values) : updateDriver(values);
-        console.log(values);
+        //console.log(values);
         setSubmitting(false);
       }}
     >
