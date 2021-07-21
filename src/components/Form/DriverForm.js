@@ -58,34 +58,28 @@ const DriverForm = ({
 
   const createDriver = (values) => {
     DriverServices.create(values)
-      .then((res) => {
-        //console.log("Conductor creado correctamente");
-        //console.log(res);
+      .then(() => {
         setSuccess({
           open: true,
           message: "Conductor creado exitosamente",
         });
       })
       .catch((err) => {
-        //console.log("[Crear Conductor] Error al crear conductor");
-        //console.error(err);
+        console.log(err);
         setFail({ open: true, message: err.response.data.message });
       });
   };
 
   const updateDriver = (values) => {
     DriverServices.update(driverId, values)
-      .then((res) => {
-        //console.log("Conductor actualizado correctamente");
-        //console.log(res);
+      .then(() => {
         setSuccess({
           open: true,
           message: "Conductor actualizado exitosamente",
         });
       })
       .catch((err) => {
-        //console.log("[Actualizar Conductor] Error al actualizar conductor");
-        //console.error(err);
+        console.log(err);
         setFail({ open: true, message: err.response.data.message });
       });
   };
@@ -143,7 +137,6 @@ const DriverForm = ({
       }}
       onSubmit={(values, { setSubmitting }) => {
         action === "Registrar" ? createDriver(values) : updateDriver(values);
-        //console.log(values);
         setSubmitting(false);
       }}
     >

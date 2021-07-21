@@ -83,13 +83,10 @@ const SignupForm = () => {
         AuthServices.signup(values)
           .then((res) => {
             StorageService.setJWT(res.data.token);
-            //console.log("saved jwt: ", StorageService.getJWT());
-            //console.log("Registrado");
             history.push("/");
           })
           .catch((err) => {
-            //console.log("[Sign Up] Error al registrar");
-            //console.error(err);
+            console.log(err);
             setFail({ open: true, message: err.response.data.message });
           });
         setSubmitting(false);

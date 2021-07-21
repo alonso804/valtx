@@ -10,6 +10,8 @@ import { StorageService } from "../../services/StorageService";
 import ErrorModal from "../Modal/ErrorModal";
 import { Link, useHistory } from "react-router-dom";
 import { inputError, errorMessage } from "./errors";
+import Loader from "react-loader-spinner";
+import Box from "@material-ui/core/Box";
 
 const useStyles = makeStyles((theme) => ({
   avatar: {
@@ -29,6 +31,17 @@ const SigninForm = () => {
   const classes = useStyles();
   const [fail, setFail] = useState({ open: false, message: "" });
   const history = useHistory();
+  const [loading, setLoading] = useState(false);
+
+  const loader = (
+    <Loader
+      type="TailSpin"
+      color="#E2E5EE"
+      height={20}
+      width={20}
+      style={{ marginTop: "5px" }}
+    />
+  );
 
   const handleClose = () => {
     setFail({ open: false, message: "" });
@@ -57,22 +70,19 @@ const SigninForm = () => {
         return errors;
       }}
       onSubmit={(values, { setSubmitting }) => {
+        setLoading(true);
         AuthServices.signin(values)
           .then((res) => {
             const { token, userId } = res.data;
             StorageService.setJWT(token);
             StorageService.setUserId(userId);
-            //console.log("saved jwt: ", StorageService.getJWT());
-            //console.log("saved user: ", StorageService.getUserId());
-            //console.log("Logeado");
             history.push("/");
           })
           .catch((err) => {
-            //console.log("[Sign In] Error al iniciar sesión");
-            //console.error(err);
+            console.log(err);
             setFail({ open: true, message: err.response.data.message });
           });
-        console.log(values);
+        setLoading(false);
         setSubmitting(false);
       }}
     >
@@ -128,7 +138,7 @@ const SigninForm = () => {
             disabled={isSubmitting}
             className={classes.submit}
           >
-            Iniciar sesión
+            {loading ? loader : "Iniciar Sesión"}
           </Button>
           <Grid container>
             <Grid item xs>

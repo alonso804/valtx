@@ -52,13 +52,12 @@ const ContentTable = ({ data, detailPath, remove, getData }) => {
 
   const filter = (e) => {
     e.preventDefault();
-    console.log("Presionaste detalle");
+    console.log("Presionaste lupita");
   };
 
   const deleteDriver = (driverId) => {
     DriverServices.delete(driverId)
-      .then((res) => {
-        console.log(res.data);
+      .then(() => {
         getData();
       })
       .catch((err) => {
