@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import { Link, useHistory } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
@@ -10,6 +9,7 @@ import { AuthServices } from "../../services/AuthServices";
 import { StorageService } from "../../services/StorageService";
 import ErrorModal from "../Modal/ErrorModal";
 import { inputError, errorMessage } from "./errors";
+import SubmitButton from "../Button/SubmitButton";
 
 const useStyles = makeStyles((theme) => ({
   avatar: {
@@ -29,6 +29,7 @@ const SignupForm = () => {
   const classes = useStyles();
   const [fail, setFail] = useState({ open: false, message: "" });
   const history = useHistory();
+  const [loading, setLoading] = useState(false);
 
   const handleClose = () => {
     setFail({ open: false, message: "" });
@@ -80,6 +81,7 @@ const SignupForm = () => {
         return errors;
       }}
       onSubmit={(values, { setSubmitting }) => {
+        setLoading(true);
         AuthServices.signup(values)
           .then((res) => {
             StorageService.setJWT(res.data.token);
@@ -89,6 +91,7 @@ const SignupForm = () => {
             console.log(err);
             setFail({ open: true, message: err.response.data.message });
           });
+        setLoading(false);
         setSubmitting(false);
       }}
     >
@@ -191,16 +194,11 @@ const SignupForm = () => {
               </FormHelperText>
             </Grid>
           </Grid>
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
+          <SubmitButton
+            loading={loading}
+            text="Registrarte"
             disabled={isSubmitting}
-            className={classes.submit}
-          >
-            Registrarte
-          </Button>
+          />
           <Grid container justify="flex-end">
             <Grid item>
               <Link to="/signin">{"¿Ya tienes cuenta? Inicia sesión"}</Link>

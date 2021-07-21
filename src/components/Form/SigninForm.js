@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
@@ -10,8 +9,7 @@ import { StorageService } from "../../services/StorageService";
 import ErrorModal from "../Modal/ErrorModal";
 import { Link, useHistory } from "react-router-dom";
 import { inputError, errorMessage } from "./errors";
-import Loader from "react-loader-spinner";
-import Box from "@material-ui/core/Box";
+import SubmitButton from "../Button/SubmitButton";
 
 const useStyles = makeStyles((theme) => ({
   avatar: {
@@ -22,9 +20,6 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     marginTop: theme.spacing(1),
   },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
 }));
 
 const SigninForm = () => {
@@ -32,16 +27,6 @@ const SigninForm = () => {
   const [fail, setFail] = useState({ open: false, message: "" });
   const history = useHistory();
   const [loading, setLoading] = useState(false);
-
-  const loader = (
-    <Loader
-      type="TailSpin"
-      color="#E2E5EE"
-      height={20}
-      width={20}
-      style={{ marginTop: "5px" }}
-    />
-  );
 
   const handleClose = () => {
     setFail({ open: false, message: "" });
@@ -130,16 +115,11 @@ const SigninForm = () => {
           <FormHelperText style={{ color: "red" }}>
             {errorMessage(errors, touched, "password")}
           </FormHelperText>
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
+          <SubmitButton
+            loading={loading}
+            text="Iniciar Sesión"
             disabled={isSubmitting}
-            className={classes.submit}
-          >
-            {loading ? loader : "Iniciar Sesión"}
-          </Button>
+          />
           <Grid container>
             <Grid item xs>
               <Link href="#" variant="body2">

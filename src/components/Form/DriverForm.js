@@ -12,6 +12,7 @@ import ErrorModal from "../Modal/ErrorModal";
 import SuccessModal from "../Modal/SuccessModal";
 import ReturnButton from "../Button/ReturnButton";
 import { inputError, errorMessage } from "./errors";
+import SubmitButton from "../Button/SubmitButton";
 
 const useStyles = makeStyles((theme) => ({
   form: {
@@ -55,8 +56,10 @@ const DriverForm = ({
   const history = useHistory();
   const [fail, setFail] = useState({ open: false, message: "" });
   const [success, setSuccess] = useState({ open: false, message: "" });
+  const [loading, setLoading] = useState(false);
 
   const createDriver = (values) => {
+    setLoading(true);
     DriverServices.create(values)
       .then(() => {
         setSuccess({
@@ -68,9 +71,11 @@ const DriverForm = ({
         console.log(err);
         setFail({ open: true, message: err.response.data.message });
       });
+    setLoading(false);
   };
 
   const updateDriver = (values) => {
+    setLoading(true);
     DriverServices.update(driverId, values)
       .then(() => {
         setSuccess({
@@ -82,6 +87,7 @@ const DriverForm = ({
         console.log(err);
         setFail({ open: true, message: err.response.data.message });
       });
+    setLoading(false);
   };
 
   const handleCloseFail = () => {
@@ -332,15 +338,11 @@ const DriverForm = ({
               <ReturnButton path="/administration" width="100%" />
             </Grid>
             <Grid item xs={12} sm={6}>
-              <Button
-                type="submit"
-                variant="contained"
-                color="primary"
+              <SubmitButton
+                loading={loading}
+                text={action}
                 disabled={isSubmitting}
-                className={classes.submit}
-              >
-                {action}
-              </Button>
+              />
             </Grid>
           </Grid>
           <ErrorModal
